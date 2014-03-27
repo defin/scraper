@@ -1,0 +1,19 @@
+;;; -*- Mode: Lisp -*-
+
+(in-package cl-user)
+
+(rutils:add-loaded-component "Markup Parser" 0)
+
+(defsystem :html-4.01-transitional-dtd (:pretty-name "HTML 4.01 Transitional DTD"
+					:default-pathname "share:scraper;markup-parser;HTML-401;")
+  (:serial "htmllat1" "htmlspecial" "htmlsymbol")
+  (:serial "loose"))
+
+(defsystem :markup-parser (:pretty-name "Markup Parser"
+					:default-pathname "share:scraper;markup-parser;")
+  (:serial "pkgdcl")
+  (:serial "base-types" "tokenizer")
+  (:serial "dtd-base" :html-4.01-transitional-dtd "null-dtd" "import-dtds")
+  (:serial "pull-parser")
+  (:serial "square-tag-syntax")
+  (:serial "tests/test"))

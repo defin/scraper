@@ -1,0 +1,19 @@
+(in-package cl-user)
+
+(rutils:add-loaded-component "Scraper" 2)
+
+(load "share:scraper;markup-parser;markup-parser.system")
+(load "share:scraper;pspel;pspel.system")
+
+(defsystem :scraper (:pretty-name "Scraper"
+				  :default-pathname "share:scraper;")
+  (:serial :markup-parser)
+  (:serial "pkgdcl")
+  (:serial "scraper-base")
+  (:serial "scraper-parse" "page-scraper")
+  (:serial :pspel)
+  (:serial "javascript"))
+
+
+
+

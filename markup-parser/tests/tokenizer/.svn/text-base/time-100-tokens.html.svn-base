@@ -1,0 +1,155 @@
+<html><head><title>Half.com: Half.com - Shops</title>
+
+<meta http-equiv="Expires" content="0">
+<meta http-equiv="Pragma" content="No-cache">
+<meta http-equiv="Cache-Control" content="No-cache,no-store,must-revalidate">
+<meta http-equiv="Content-Language" content="EN">
+<meta name="copyright" content="Copyright 1995-2003 eBay.com"><!-- META_TAGS -->
+
+<meta name="revisit-after" content="7 days"><meta name="robots" content="FOLLOW,INDEX">
+
+<script language="JavaScript" src="seller%20profile%20-%20mfkhandy_files/cookies_v1.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+<script language="JavaScript">
+function ssGetCountry() {
+  return "US;";
+}
+
+function trackNaturalSearch() {
+ if (ssGetCountry() != "US;")
+  return;
+  var lastPage=unescape(document.referrer).toLowerCase();
+  var ssTP=unescape(document.location).toLowerCase();
+ 
+ var ua = new Array("images.google.com","groups.google.com","www.google.com/search",
+     "aolsearch.aol.com",
+     "search.yahoo.com",
+     "search.msn.com",
+     "search.aol.com");
+ 
+ var lpQInd = lastPage.indexOf("?");
+ var lpHost = lastPage;
+ if (lpQInd != -1)
+  lpHost = lpHost.substring(0,lpQInd);
+ var nss = false;
+ for (var i=0; i<ua.length && !nss; i++)
+ {
+  if (lpHost.indexOf(ua[i]) != -1)
+   nss = lastPage;
+ }
+ 
+
+ if (nss)
+ {
+  var t = new Date();
+  var im = '<img src="http://adfarm.mediaplex.com/ad/lt/711-15927-2611-0?mpt=';
+  im += escape(t.toGMTString())+'&mpcl='+escape(ssTP)+'&mpvl='+escape(nss)+'" border=0 height=1 width=1>';
+  document.write(im);
+  
+ }
+}
+</script>
+<script language="JavaScript">trackNaturalSearch();</script>
+<meta http-equiv="Expires" content="0"><meta http-equiv="Pragma" content="No-cache"><meta http-equiv="Cache-Control" content="No-cache,no-store,must-revalidate"></head>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<body alink="#330099" bgcolor="#ffffff" link="#330099" vlink="#330099">
+
+
+
+<map name="topnav_imap"><area href="http://half.ebay.com/index.jsp" alt="Home" coords="0,0,47,28" shape="RECT"><area href="http://half.ebay.com/products/books/index.cfm" alt="Books" coords="47,0,87,28" shape="RECT"><area href="http://half.ebay.com/browse/browse.cfm?tag=tb_books" alt="Textbooks" coords="87,0,148,28" shape="RECT"><area href="http://half.ebay.com/products/music/index.cfm" alt="Music" coords="148,0,186,28" shape="RECT"><area href="http://half.ebay.com/products/videos/index.cfm" alt="DVDs/Movies" coords="186,0,228,28" shape="RECT"><area href="http://half.ebay.com/products/games/index.cfm" alt="Video Games" coords="228,0,269,28" shape="RECT"><area href="http://half.ebay.com/products/computers/index.cfm" alt="Computers &amp; Software" coords="269,0,334,28" shape="RECT"><area href="http://half.ebay.com/products/electronics/index.cfm" alt="Electronics" coords="334,0,399,28" shape="RECT"><area href="http://altfarm.mediaplex.com/ad/ck/1065-20758-2611-0" alt="the Half Zone on eBay" coords="402,0,472,28" shape="RECT"></map>
+<map name="accountnav_signout"><area href="https://half.ebay.com/account/auth/account.jsp" alt="my account" shape="RECT" coords="0,2,88,30"><area href="http://half.ebay.com/account/cart/cart.jsp" alt="cart" shape="RECT" coords="90,2,140,30"><area href="http://half.ebay.com/help/index.cfm" alt="help" shape="RECT" coords="142,2,192,30"><area href="https://half.ebay.com/include/flexi_url_redir.cfm?redir=4" alt="ebay home" shape="RECT" coords="206,0,282,30"><area href="https://scgi.half.ebay.com/saw-cgi/eBayISAPI.dll?RemoveAllSessionCookies" alt="sign out" shape="RECT" coords="286,0,335,30"></map>
+<map name="accountnav_signin"><area href="https://half.ebay.com/account/auth/account.jsp" alt="my account" shape="RECT" coords="0,2,87,30"><area href="http://half.ebay.com/account/cart/cart.jsp" alt="cart" shape="RECT" coords="89,2,141,30"><area href="http://half.ebay.com/help/index.cfm" alt="help" shape="RECT" coords="143,2,194,30"><area href="http://half.ebay.com/include/flexi_url_redir.cfm?redir=4" alt="ebay home" shape="RECT" coords="206,0,282,30"><area href="https://scgi.half.ebay.com/saw-cgi/ebayisapi.dll?SignIn&amp;usingSSL=1" alt="sign in" shape="RECT" coords="285,0,335,30"></map>
+<map name="accountnav_signinout"><area href="https://half.ebay.com/account/auth/account.jsp" alt="my account" shape="RECT" coords="0,2,87,30"><area href="http://half.ebay.com/account/cart/cart.jsp" alt="cart" shape="RECT" coords="90,2,140,30"><area href="http://half.ebay.com/help/index.cfm" alt="help" shape="RECT" coords="143,2,191,30"><area href="http://half.ebay.com/include/flexi_url_redir.cfm?redir=4" alt="ebay home" shape="RECT" coords="195,0,270,30"><area href="https://scgi.half.ebay.com/saw-cgi/ebayisapi.dll?SignIn&amp;usingSSL=1" alt="sign in/out" shape="RECT" coords="272,0,335,30"></map>
+
+<script type="text/javascript" language="JavaScript1.1">
+if ((ReadCookie("ebaysignin") == "in") || (ReadCookie("keepmesignin") == "in")) {
+   document.write("<MAP NAME=\"secondary_nav\">");
+   document.write("<AREA HREF=\"http://altfarm.mediaplex.com/ad/ck/1065-17532-2611-0\" ALT=\"eBay Gift Certificates\" SHAPE=\"RECT\" COORDS=\"16,1,170,22\">");
+   document.write("<AREA HREF=\"https://half.ebay.com/account/auth/wishlist/wishlist.jsp?refresh\" ALT=\"Wish List\" SHAPE=\"RECT\" COORDS=\"171,1,243,22\">");
+   document.write("<AREA HREF=\"https://half.ebay.com/account/auth/preorder/preorder.jsp?refresh\" ALT=\"Pre-Orders\" SHAPE=\"RECT\" COORDS=\"244,1,317,22\">");
+   document.write("<AREA HREF=\"http://half.ebay.com/reccenter/index.jsp\" ALT=\"Recommendations\" SHAPE=\"RECT\" COORDS=\"318,1,456,22\">");
+   document.write("<AREA HREF=\"http://half.ebay.com/help/sell.cfm\" ALT=\"Sell Your Stuff\" SHAPE=\"RECT\" COORDS=\"457,1,555,22\">");
+   document.write("</MAP>");
+} else {
+   document.write("<MAP NAME=\"secondary_nav\">");
+   document.write("<AREA HREF=\"http://altfarm.mediaplex.com/ad/ck/1065-17532-2611-0\" ALT=\"eBay Gift Certificates\" SHAPE=\"RECT\" COORDS=\"16,1,170,22\">");
+   document.write("<AREA HREF=\"http://half.ebay.com/account/wishlist/wishlistcontroller.jsp?cmd=landing\" ALT=\"Wish List\" SHAPE=\"RECT\" COORDS=\"171,1,243,22\">");
+   document.write("<AREA HREF=\"https://half.ebay.com/account/auth/preorder/preorder.jsp?refresh\" ALT=\"Pre-Orders\" SHAPE=\"RECT\" COORDS=\"244,1,317,22\">");
+   document.write("<AREA HREF=\"http://half.ebay.com/reccenter/index.jsp\" ALT=\"Recommendations\" SHAPE=\"RECT\" COORDS=\"318,1,456,22\">");
+   document.write("<AREA HREF=\"http://half.ebay.com/help/sell.cfm\" ALT=\"Sell Your Stuff\" SHAPE=\"RECT\" COORDS=\"457,1,555,22\">");
+   document.write("</MAP>");
+}
+</script><map name="secondary_nav"><area href="http://altfarm.mediaplex.com/ad/ck/1065-17532-2611-0" alt="eBay Gift Certificates" shape="RECT" coords="16,1,170,22"><area href="http://half.ebay.com/account/wishlist/wishlistcontroller.jsp?cmd=landing" alt="Wish List" shape="RECT" coords="171,1,243,22"><area href="https://half.ebay.com/account/auth/preorder/preorder.jsp?refresh" alt="Pre-Orders" shape="RECT" coords="244,1,317,22"><area href="http://half.ebay.com/reccenter/index.jsp" alt="Recommendations" shape="RECT" coords="318,1,456,22"><area href="http://half.ebay.com/help/sell.cfm" alt="Sell Your Stuff" shape="RECT" coords="457,1,555,22"></map>
+<noscript>
+<MAP NAME="secondary_nav">
+<AREA HREF="http://altfarm.mediaplex.com/ad/ck/1065-17532-2611-0"
+ALT="eBay Gift Certificates" SHAPE="RECT" COORDS="16,1,170,22">
+<AREA
+HREF="https://half.ebay.com/account/auth/wishlist/wishlist.jsp?refresh"
+ALT="Wish List" SHAPE="RECT" COORDS="171,1,243,22">
+<AREA
+HREF="https://half.ebay.com/account/auth/preorder/preorder.jsp?refresh"
+ALT="Pre-Orders" SHAPE="RECT" COORDS="244,1,317,22">
+<AREA HREF="http://half.ebay.com/reccenter/index.jsp"
+ALT="Recommendations" SHAPE="RECT" COORDS="318,1,456,22">
+<AREA HREF="http://half.ebay.com/help/sell.cfm" ALT="Sell Your Stuff"
+SHAPE="RECT" COORDS="457,1,555,22">
+</MAP>
+</noscript>
+
+
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+<form action="http://half.ebay.com/search/search.jsp" method="get"></form>
+<tbody><tr>
+<td width="100%">
+   <table border="0" cellpadding="0" cellspacing="0" width="100%">
+   <tbody><tr>
+   <td valign="bottom" width="115"><table border="0" cellpadding="0" cellspacing="0" width="115"><tbody><tr><td height="55" width="115"><a href="http://half.ebay.com/"><img src="seller%20profile%20-%20mfkhandy_files/halfcom_logo.gif" alt="Half.com by eBay: Buy and Sell new and used books, music, movies, games and more..." border="0" height="55" width="115"></a></td></tr><tr><td bgcolor="#cc6600" height="1" width="115"><img src="seller%20profile%20-%20mfkhandy_files/spacer.gif" height="1" width="115"></td></tr></tbody></table></td>

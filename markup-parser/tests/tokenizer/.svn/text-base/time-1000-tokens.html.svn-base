@@ -1,0 +1,649 @@
+<html><head><title>Half.com: Half.com - Shops</title>
+
+<meta http-equiv="Expires" content="0">
+<meta http-equiv="Pragma" content="No-cache">
+<meta http-equiv="Cache-Control" content="No-cache,no-store,must-revalidate">
+<meta http-equiv="Content-Language" content="EN">
+<meta name="copyright" content="Copyright 1995-2003 eBay.com"><!-- META_TAGS -->
+
+<meta name="revisit-after" content="7 days"><meta name="robots" content="FOLLOW,INDEX">
+
+<script language="JavaScript" src="seller%20profile%20-%20mfkhandy_files/cookies_v1.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+<script language="JavaScript">
+function ssGetCountry() {
+  return "US;";
+}
+
+function trackNaturalSearch() {
+ if (ssGetCountry() != "US;")
+  return;
+  var lastPage=unescape(document.referrer).toLowerCase();
+  var ssTP=unescape(document.location).toLowerCase();
+ 
+ var ua = new Array("images.google.com","groups.google.com","www.google.com/search",
+     "aolsearch.aol.com",
+     "search.yahoo.com",
+     "search.msn.com",
+     "search.aol.com");
+ 
+ var lpQInd = lastPage.indexOf("?");
+ var lpHost = lastPage;
+ if (lpQInd != -1)
+  lpHost = lpHost.substring(0,lpQInd);
+ var nss = false;
+ for (var i=0; i<ua.length && !nss; i++)
+ {
+  if (lpHost.indexOf(ua[i]) != -1)
+   nss = lastPage;
+ }
+ 
+
+ if (nss)
+ {
+  var t = new Date();
+  var im = '<img src="http://adfarm.mediaplex.com/ad/lt/711-15927-2611-0?mpt=';
+  im += escape(t.toGMTString())+'&mpcl='+escape(ssTP)+'&mpvl='+escape(nss)+'" border=0 height=1 width=1>';
+  document.write(im);
+  
+ }
+}
+</script>
+<script language="JavaScript">trackNaturalSearch();</script>
+<meta http-equiv="Expires" content="0"><meta http-equiv="Pragma" content="No-cache"><meta http-equiv="Cache-Control" content="No-cache,no-store,must-revalidate"></head>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<body alink="#330099" bgcolor="#ffffff" link="#330099" vlink="#330099">
+
+
+
+<map name="topnav_imap"><area href="http://half.ebay.com/index.jsp" alt="Home" coords="0,0,47,28" shape="RECT"><area href="http://half.ebay.com/products/books/index.cfm" alt="Books" coords="47,0,87,28" shape="RECT"><area href="http://half.ebay.com/browse/browse.cfm?tag=tb_books" alt="Textbooks" coords="87,0,148,28" shape="RECT"><area href="http://half.ebay.com/products/music/index.cfm" alt="Music" coords="148,0,186,28" shape="RECT"><area href="http://half.ebay.com/products/videos/index.cfm" alt="DVDs/Movies" coords="186,0,228,28" shape="RECT"><area href="http://half.ebay.com/products/games/index.cfm" alt="Video Games" coords="228,0,269,28" shape="RECT"><area href="http://half.ebay.com/products/computers/index.cfm" alt="Computers &amp; Software" coords="269,0,334,28" shape="RECT"><area href="http://half.ebay.com/products/electronics/index.cfm" alt="Electronics" coords="334,0,399,28" shape="RECT"><area href="http://altfarm.mediaplex.com/ad/ck/1065-20758-2611-0" alt="the Half Zone on eBay" coords="402,0,472,28" shape="RECT"></map>
+<map name="accountnav_signout"><area href="https://half.ebay.com/account/auth/account.jsp" alt="my account" shape="RECT" coords="0,2,88,30"><area href="http://half.ebay.com/account/cart/cart.jsp" alt="cart" shape="RECT" coords="90,2,140,30"><area href="http://half.ebay.com/help/index.cfm" alt="help" shape="RECT" coords="142,2,192,30"><area href="https://half.ebay.com/include/flexi_url_redir.cfm?redir=4" alt="ebay home" shape="RECT" coords="206,0,282,30"><area href="https://scgi.half.ebay.com/saw-cgi/eBayISAPI.dll?RemoveAllSessionCookies" alt="sign out" shape="RECT" coords="286,0,335,30"></map>
+<map name="accountnav_signin"><area href="https://half.ebay.com/account/auth/account.jsp" alt="my account" shape="RECT" coords="0,2,87,30"><area href="http://half.ebay.com/account/cart/cart.jsp" alt="cart" shape="RECT" coords="89,2,141,30"><area href="http://half.ebay.com/help/index.cfm" alt="help" shape="RECT" coords="143,2,194,30"><area href="http://half.ebay.com/include/flexi_url_redir.cfm?redir=4" alt="ebay home" shape="RECT" coords="206,0,282,30"><area href="https://scgi.half.ebay.com/saw-cgi/ebayisapi.dll?SignIn&amp;usingSSL=1" alt="sign in" shape="RECT" coords="285,0,335,30"></map>
+<map name="accountnav_signinout"><area href="https://half.ebay.com/account/auth/account.jsp" alt="my account" shape="RECT" coords="0,2,87,30"><area href="http://half.ebay.com/account/cart/cart.jsp" alt="cart" shape="RECT" coords="90,2,140,30"><area href="http://half.ebay.com/help/index.cfm" alt="help" shape="RECT" coords="143,2,191,30"><area href="http://half.ebay.com/include/flexi_url_redir.cfm?redir=4" alt="ebay home" shape="RECT" coords="195,0,270,30"><area href="https://scgi.half.ebay.com/saw-cgi/ebayisapi.dll?SignIn&amp;usingSSL=1" alt="sign in/out" shape="RECT" coords="272,0,335,30"></map>
+
+<script type="text/javascript" language="JavaScript1.1">
+if ((ReadCookie("ebaysignin") == "in") || (ReadCookie("keepmesignin") == "in")) {
+   document.write("<MAP NAME=\"secondary_nav\">");
+   document.write("<AREA HREF=\"http://altfarm.mediaplex.com/ad/ck/1065-17532-2611-0\" ALT=\"eBay Gift Certificates\" SHAPE=\"RECT\" COORDS=\"16,1,170,22\">");
+   document.write("<AREA HREF=\"https://half.ebay.com/account/auth/wishlist/wishlist.jsp?refresh\" ALT=\"Wish List\" SHAPE=\"RECT\" COORDS=\"171,1,243,22\">");
+   document.write("<AREA HREF=\"https://half.ebay.com/account/auth/preorder/preorder.jsp?refresh\" ALT=\"Pre-Orders\" SHAPE=\"RECT\" COORDS=\"244,1,317,22\">");
+   document.write("<AREA HREF=\"http://half.ebay.com/reccenter/index.jsp\" ALT=\"Recommendations\" SHAPE=\"RECT\" COORDS=\"318,1,456,22\">");
+   document.write("<AREA HREF=\"http://half.ebay.com/help/sell.cfm\" ALT=\"Sell Your Stuff\" SHAPE=\"RECT\" COORDS=\"457,1,555,22\">");
+   document.write("</MAP>");
+} else {
+   document.write("<MAP NAME=\"secondary_nav\">");
+   document.write("<AREA HREF=\"http://altfarm.mediaplex.com/ad/ck/1065-17532-2611-0\" ALT=\"eBay Gift Certificates\" SHAPE=\"RECT\" COORDS=\"16,1,170,22\">");
+   document.write("<AREA HREF=\"http://half.ebay.com/account/wishlist/wishlistcontroller.jsp?cmd=landing\" ALT=\"Wish List\" SHAPE=\"RECT\" COORDS=\"171,1,243,22\">");
+   document.write("<AREA HREF=\"https://half.ebay.com/account/auth/preorder/preorder.jsp?refresh\" ALT=\"Pre-Orders\" SHAPE=\"RECT\" COORDS=\"244,1,317,22\">");
+   document.write("<AREA HREF=\"http://half.ebay.com/reccenter/index.jsp\" ALT=\"Recommendations\" SHAPE=\"RECT\" COORDS=\"318,1,456,22\">");
+   document.write("<AREA HREF=\"http://half.ebay.com/help/sell.cfm\" ALT=\"Sell Your Stuff\" SHAPE=\"RECT\" COORDS=\"457,1,555,22\">");
+   document.write("</MAP>");
+}
+</script><map name="secondary_nav"><area href="http://altfarm.mediaplex.com/ad/ck/1065-17532-2611-0" alt="eBay Gift Certificates" shape="RECT" coords="16,1,170,22"><area href="http://half.ebay.com/account/wishlist/wishlistcontroller.jsp?cmd=landing" alt="Wish List" shape="RECT" coords="171,1,243,22"><area href="https://half.ebay.com/account/auth/preorder/preorder.jsp?refresh" alt="Pre-Orders" shape="RECT" coords="244,1,317,22"><area href="http://half.ebay.com/reccenter/index.jsp" alt="Recommendations" shape="RECT" coords="318,1,456,22"><area href="http://half.ebay.com/help/sell.cfm" alt="Sell Your Stuff" shape="RECT" coords="457,1,555,22"></map>
+<noscript>
+<MAP NAME="secondary_nav">
+<AREA HREF="http://altfarm.mediaplex.com/ad/ck/1065-17532-2611-0"
+ALT="eBay Gift Certificates" SHAPE="RECT" COORDS="16,1,170,22">
+<AREA
+HREF="https://half.ebay.com/account/auth/wishlist/wishlist.jsp?refresh"
+ALT="Wish List" SHAPE="RECT" COORDS="171,1,243,22">
+<AREA
+HREF="https://half.ebay.com/account/auth/preorder/preorder.jsp?refresh"
+ALT="Pre-Orders" SHAPE="RECT" COORDS="244,1,317,22">
+<AREA HREF="http://half.ebay.com/reccenter/index.jsp"
+ALT="Recommendations" SHAPE="RECT" COORDS="318,1,456,22">
+<AREA HREF="http://half.ebay.com/help/sell.cfm" ALT="Sell Your Stuff"
+SHAPE="RECT" COORDS="457,1,555,22">
+</MAP>
+</noscript>
+
+
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+<form action="http://half.ebay.com/search/search.jsp" method="get"></form>
+<tbody><tr>
+<td width="100%">
+   <table border="0" cellpadding="0" cellspacing="0" width="100%">
+   <tbody><tr>
+   <td valign="bottom" width="115"><table border="0" cellpadding="0" cellspacing="0" width="115"><tbody><tr><td height="55" width="115"><a href="http://half.ebay.com/"><img src="seller%20profile%20-%20mfkhandy_files/halfcom_logo.gif" alt="Half.com by eBay: Buy and Sell new and used books, music, movies, games and more..." border="0" height="55" width="115"></a></td></tr><tr><td bgcolor="#cc6600" height="1" width="115"><img src="seller%20profile%20-%20mfkhandy_files/spacer.gif" height="1" width="115"></td></tr></tbody></table></td>
+   <td valign="bottom" width="4"><table border="0" cellpadding="0" cellspacing="0" width="4"><tbody><tr><td height="55" width="4"><img src="seller%20profile%20-%20mfkhandy_files/spacer.gif" height="55" width="4"></td></tr><tr><td bgcolor="#cc6600" height="1" width="4"><img src="seller%20profile%20-%20mfkhandy_files/spacer.gif" height="1" width="4"></td></tr></tbody></table></td>
+   <td rowspan="2" valign="bottom" width="100%">
+      <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tbody><tr>
+      <td width="100%">
+         <table border="0" cellpadding="0" cellspacing="0" width="100%">
+         <tbody><tr>
+         <td align="center" valign="middle" width="100%"><font face="Verdana,Geneva,Arial" size="1"><a href="http://half.ebay.com/cat/buy/prod.cgi?cpidEQ1227028455AMPdomain_idEQ1877AMPmeta_idEQ3"><b>DVD New Release: <i>The Prince and Me</i> - as low as $14.99!</b></a></font></td>
+         <td width="6"><img src="seller%20profile%20-%20mfkhandy_files/spacer.gif" height="1" width="6"></td>
+         <td valign="middle" width="335">
+         <script type="text/javascript" language="JavaScript1.1">
+         if ((ReadCookie("ebaysignin") == "in") || (ReadCookie("keepmesignin") == "in")) {
+            document.write("<IMG SRC=\"http://pics.half.ebay.com/img/half_tb/account_signout.gif\" WIDTH=335 HEIGHT=32 BORDER=0 USEMAP=\"#accountnav_signout\">");
+         } else {
+            document.write("<IMG SRC=\"http://pics.half.ebay.com/img/half_tb/account_signin.gif\" WIDTH=335 HEIGHT=32 BORDER=0 USEMAP=\"#accountnav_signin\">");
+         }
+         </script><img src="seller%20profile%20-%20mfkhandy_files/account_signin.gif" usemap="#accountnav_signin" border="0" height="32" width="335">
+         <noscript><IMG
+SRC="http://pics.half.ebay.com/img/half_tb/account_signinout.gif"
+WIDTH=335 HEIGHT=32 BORDER=0 USEMAP="#accountnav_signinout"></noscript></td>
+         </tr>
+         </tbody></table></td>
+      </tr>
+      <tr><td height="4" width="100%"><img src="seller%20profile%20-%20mfkhandy_files/spacer.gif" height="4" width="2"></td></tr>
+      <tr>
+      <td width="100%">
+         <table border="0" cellpadding="0" cellspacing="0" width="100%">
+         <tbody><tr>
+         <td height="28" width="50%"><table border="0" cellpadding="0" cellspacing="0" width="100%"><tbody><tr><td height="27"><img src="seller%20profile%20-%20mfkhandy_files/spacer.gif" height="27" width="1"></td></tr><tr><td bgcolor="#cc6600" height="1"><img src="seller%20profile%20-%20mfkhandy_files/spacer.gif" height="1" width="1"></td></tr></tbody></table></td>
+         <td height="28" width="475"><img src="seller%20profile%20-%20mfkhandy_files/HZtopnav_99.gif" alt="" usemap="#topnav_imap" border="0" height="28" width="475"></td>
+         <td height="28" width="50%"><table border="0" cellpadding="0" cellspacing="0" width="100%"><tbody><tr><td height="27"><img src="seller%20profile%20-%20mfkhandy_files/spacer.gif" height="27" width="1"></td></tr><tr><td bgcolor="#cc6600" height="1"><img src="seller%20profile%20-%20mfkhandy_files/spacer.gif" height="1" width="1"></td></tr></tbody></table></td>
+         </tr>
+         </tbody></table></td>
+      </tr>
+      </tbody></table></td>
+   </tr>
+   </tbody></table></td>
+</tr>
+<tr><td align="center" bgcolor="#ff9900" height="22" width="100%"><img src="seller%20profile%20-%20mfkhandy_files/Tsubnav_99.gif" usemap="#secondary_nav" border="0" height="23" width="580"></td></tr>
+
+<tr><td align="center" bgcolor="#eeeeee" width="100%">
+<table border="0" cellpadding="1" cellspacing="1">
+<tbody><tr>
+<td valign="middle"><font face="Verdana,Geneva,Arial" size="1"> Search: </font><input name="nthTime" value="1" type="hidden"></td>
+<td valign="middle"><select name="product"><option value="all" selected="selected">All Categories</option><option value="books">Books</option><option value="music">Music</option><option value="videos">DVDs/Movies</option><option value="games">Video Games</option><option value="computers">Computers</option><option value="electronics">Electronics</option><option value="everything_else">Everything Else</option><option value="sporting_goods">Sporting Goods</option><option value="ebaysearch">On eBay</option></select></td>
+
+
+   <td valign="middle"><input name="keyword" maxlength="230" size="23" value="" type="text"></td>
+
+
+<td valign="middle"><input src="seller%20profile%20-%20mfkhandy_files/go_button.gif" alt="go" border="0" height="24" type="image" width="22"></td>
+
+</tr>
+</tbody></table></td></tr>
+
+
+
+<tr><td bgcolor="#cccccc" height="1" width="100%"><table border="0" cellpadding="0" cellspacing="0" width="100%"><tbody><tr><td height="1" width="100%"><img src="seller%20profile%20-%20mfkhandy_files/spacer.gif" height="1" width="2"></td><td height="1" width="1"><script language="JavaScript">var s_server="half.ebay.com";var s_visitorSampling=10;var s_visitorSamplingGroup=1;var s_account="prodhalf";var s_code=' ';var s_pageName="Shops/Main";var s_channel="Shops";</script><script src="seller%20profile%20-%20mfkhandy_files/g2_s_code.js"></script><img name="s_i_prodhalf" border="0" height="1" width="1"></td></tr></tbody></table></td></tr>
+
+
+<tr><td height="6" width="100%"><img src="seller%20profile%20-%20mfkhandy_files/spacer.gif" height="6" width="590"></td></tr>
+
+</tbody></table>
+
+
+
+
+
+
+
+<!-- navigation_success -->
+
+
+
+
+
+
+
+
+
+
+
+<font face="Arial,Helvetica,sans-serif" size="2">
+
+  <font face="Arial,Verdana,Geneva,Helvetica" size="2"><a href="http://half.ebay.com/">Home</a> &gt; mfkhandy<br>
+
+<img src="seller%20profile%20-%20mfkhandy_files/spacer.gif" height="10" width="1"><br>
+
+
+
+
+
+
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tbody><tr>
+<td valign="top" width="160">
+<font face="Verdana,Geneva,Arial" size="2">
+
+
+
+
+
+
+
+
+
+<table border="0" cellpadding="0" cellspacing="0" width="100%"><tbody><tr><td valign="top" width="160"><img src="seller%20profile%20-%20mfkhandy_files/spacer.gif" height="2" width="160"><br><img src="seller%20profile%20-%20mfkhandy_files/listed_items_header.gif" alt="Listed Items" height="22" width="160"><br><table border="0" cellpadding="0" cellspacing="0" width="100%"><tbody><tr><td bgcolor="#336699" width="100%"><table border="0" cellpadding="0" cellspacing="2" width="100%"><tbody><tr><td bgcolor="#ffffff" width="100%"><table border="0" cellpadding="6" cellspacing="0" width="100%"><tbody><tr valign="top"><td bgcolor="#ffffff"><font face="Arial,Helvetica,sans-serif" size="2"><a href="http://half.ebay.com/shops/shops.jsp?seller_id=274482&amp;tag_name=books"><font size="3"><b>Books</b></font></a> (357)<br><font size="1"><img src="seller%20profile%20-%20mfkhandy_files/spacer.gif" height="14" width="1"><br></font><a href="http://half.ebay.com/shops/shops.jsp?seller_id=274482&amp;tag_name=music"><font size="3"><b>Music</b></font></a> (21)<br><font size="1"><img src="seller%20profile%20-%20mfkhandy_files/spacer.gif" height="14" width="1"><br></font><a href="http://half.ebay.com/shops/shops.jsp?seller_id=274482&amp;tag_name=video"><font size="3"><b>Movies/DVDs</b></font></a> (61)<br><font size="1"><img src="seller%20profile%20-%20mfkhandy_files/spacer.gif" height="14" width="1"><br></font><a href="http://half.ebay.com/shops/shops.jsp?seller_id=274482&amp;tag_name=games"><font size="3"><b>Games</b></font></a> (2)<br><font size="1"><img src="seller%20profile%20-%20mfkhandy_files/spacer.gif" height="14" width="1"><br></font><a href="http://half.ebay.com/shops/shops.jsp?seller_id=274482&amp;tag_name=computers"><font size="3"><b>Computers</b></font></a> (13)<br><font size="1"><img src="seller%20profile%20-%20mfkhandy_files/spacer.gif" height="14" width="1"><br></font><a href="http://half.ebay.com/shops/shops.jsp?seller_id=274482&amp;tag_name=EE"><font size="3"><b>Everything Else</b></font></a> (10)<br><img src="seller%20profile%20-%20mfkhandy_files/spacer.gif" height="8" width="2"><br></font></td></tr></tbody></table></td></tr></tbody></table></td></tr></tbody></table></td></tr></tbody></table>
+
+<font face="Arial,Verdana,Geneva" size="2"><br>
+
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+
+<tbody><tr><td valign="top"><img src="seller%20profile%20-%20mfkhandy_files/spacer.gif" height="4" width="2"><br><img src="seller%20profile%20-%20mfkhandy_files/blue_arrow_white.gif" height="8" width="11"></td>
+<td width-100=""><font face="Arial,Verdana,Geneva" size="2"><a href="http://half.ebay.com/include/flexi_url_redir.cfm?user_id=mfkhandy&amp;redir=14">View my items for sale on eBay</a></font></td>
+</tr>
+
+</tbody></table>
+ <br>
+<a href="http://half.ebay.com/shops/shippingDiscountsPopup.jsp" onclick="var productimage = window.open('http://half.ebay.com/shops/shippingDiscountsPopup.jsp','shippingdiscountshelp','width=400,height=610');return false;"><img src="seller%20profile%20-%20mfkhandy_files/save_on_shipping.gif" border="0"></a>
+
+
+
+
+
+</font><br><img src="seller%20profile%20-%20mfkhandy_files/spacer.gif" height="1" width="158"></font></td>
+
+
+<td width="10"><img src="seller%20profile%20-%20mfkhandy_files/spacer.gif" height="1" width="10"></td>
+
+
+<td valign="top" width="100%">
+<font face="Verdana,Geneva,Arial" size="2">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+  <tbody><tr>
+    <td valign="top">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+    <tbody><tr>
+    <td rowspan="2"><img src="seller%20profile%20-%20mfkhandy_files/shops_header2.gif"></td>
+    <td valign="bottom" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0" width="100%">
+        <tbody><tr><td bgcolor="#6699cc" height="2" width="100%"><img src="seller%20profile%20-%20mfkhandy_files/spacer.gif" height="2" width="2"></td></tr>
+        </tbody></table></td>
+    </tr>
+    
+    </tbody></table>
+
+    <img src="seller%20profile%20-%20mfkhandy_files/spacer.gif" height="4" width="2"><br>
+    <b><font face="Verdana,Geneva,Arial" size="4">mfkhandy</font></b><br>
+    <img src="seller%20profile%20-%20mfkhandy_files/spacer.gif" height="4" width="2"><br>
+
+
+            
+              <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                <tbody><tr>
+                  <td><font face="Verdana,Geneva,Arial" size="2">Feedback: </font><font face="Verdana,Geneva,Arial" size="2">
+                    <b><a href="http://cgi2.half.ebay.com/aw-cgi/eBayISAPI.dll?ViewFeedback&amp;items=50&amp;userid=mfkhandy">2301</a> <a href="http://half.ebay.com/help/index.cfm?helpsection=ebay_stars.cfm&amp;popup=1" onclick="var feedbackPopup = window.open('http://half.ebay.com/help/index.cfm?helpsection=ebay_stars.cfm&popup=1','help','width=400,height=525,scrollbars,resizable');return false;" target="_blank"><img alt="star" src="seller%20profile%20-%20mfkhandy_files/stars-9.gif" align="middle" border="0" height="25" width="25"></a>
+                    
+                    
+                    </b></font></td>
+                </tr>
+              </tbody></table>
+            
+
+    <font face="Verdana,Geneva,Arial" size="2">
+    <img src="seller%20profile%20-%20mfkhandy_files/spacer.gif" height="4" width="2"><br>
+    
+    <img src="seller%20profile%20-%20mfkhandy_files/blue_arrow_white.gif" height="8" width="11"><a href="https://half.ebay.com/account/auth/favoritesellers/favoritesellers.jsp?action=add&amp;seller_id=274482">Add to Favorites</a><br>
+    <img src="seller%20profile%20-%20mfkhandy_files/spacer.gif" height="10" width="2"><br>
+
+            <font face="Verdana,Geneva,Arial" size="2"><img src="seller%20profile%20-%20mfkhandy_files/spacer.gif" height="6" width="2"><br>
+            Shipping methods: Media Mail, Expedited Mail
+            <br>
+
+            Ships from:
+
+                Miami,
+
+                FL
+
+<br>
+
+            
+            <img src="seller%20profile%20-%20mfkhandy_files/spacer.gif" height="10" width="2"></font>
+    </font></td>
+
+              <td width="4"><img src="seller%20profile%20-%20mfkhandy_files/spacer.gif" height="2" width="4"></td>
+          <td align="right" valign="top" width="180">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+
+<tbody><tr><td colspan="8" bgcolor="#6699cc" height="22"><img src="seller%20profile%20-%20mfkhandy_files/seller_stats_header.gif" border="0" height="22" width="160"></td></tr>
+
+<tr>
+<td bgcolor="#6699cc" width="2"><img src="seller%20profile%20-%20mfkhandy_files/spacer.gif" height="1" width="2"></td>
+<td bgcolor="#ffffff" width="6"><img src="seller%20profile%20-%20mfkhandy_files/spacer.gif" height="1" width="6"></td>
+<td colspan="4" bgcolor="#ffffff"><font face="Arial,Helvetica,sans-serif"><font size="2">
+
+
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tbody><tr><td colspan="2" height="2"><img src="seller%20profile%20-%20mfkhandy_files/spacer.gif" height="4" width="1"></td></tr>
+<tr>
+<td><font face="Verdana,Geneva,Arial" size="1">Selling Since:</font></td>
+<td><b><font face="Verdana,Geneva,Arial" size="1">11/00</font></b></td>
+</tr>
+<tr><td colspan="2" height="2"><img src="seller%20profile%20-%20mfkhandy_files/spacer.gif" height="2" width="1"></td></tr>
+<tr>
+<td><font face="Verdana,Geneva,Arial" size="1">Current Inventory:</font></td>
+<td><b><font face="Verdana,Geneva,Arial" size="1">464</font></b></td>
+</tr>
+<tr><td colspan="2" height="2"><img src="seller%20profile%20-%20mfkhandy_files/spacer.gif" height="2" width="1"></td></tr>
+
+<tr>
+<td><font face="Verdana,Geneva,Arial" size="1">Last Updated:</font></td>
+<td><b><font face="Verdana,Geneva,Arial" size="1">08/15/04</font></b></td>
+</tr>
+<tr><td colspan="2" height="2"><img src="seller%20profile%20-%20mfkhandy_files/spacer.gif" height="2" width="1"></td></tr>
+
+<tr>
+<td><font face="Verdana,Geneva,Arial" size="1"># of Transactions:</font></td>
+<td><b><font face="Verdana,Geneva,Arial" size="1">315</font></b></td>
+</tr>
+<tr><td colspan="2" height="2"><img src="seller%20profile%20-%20mfkhandy_files/spacer.gif" height="2" width="1"></td></tr>
+<tr>
+<td><font face="Verdana,Geneva,Arial" size="1"># of Items Sold:</font></td>
+<td><b><font face="Verdana,Geneva,Arial" size="1">317</font></b></td>
+</tr>
+<tr><td colspan="2" height="2"><img src="seller%20profile%20-%20mfkhandy_files/spacer.gif" height="2" width="1"></td></tr>
+<tr>
+<td><font face="Verdana,Geneva,Arial" size="1">Items Confirmed:</font></td>
+<td><b><font face="Verdana,Geneva,Arial" size="1">98%</font></b></td>
+</tr>
+</tbody></table>
+
+
+
+
+
+
+
+</font></font></td>
+<td bgcolor="#ffffff" width="6"><img src="seller%20profile%20-%20mfkhandy_files/spacer.gif" height="1" width="6"></td>
+<td bgcolor="#6699cc" width="2"><img src="seller%20profile%20-%20mfkhandy_files/spacer.gif" height="1" width="2"></td>
+</tr>
+<tr>
+<td bgcolor="#6699cc" height="9" width="2"><img src="seller%20profile%20-%20mfkhandy_files/spacer.gif" height="9" width="2"></td>
+<td bgcolor="#ffffff" height="9" width="6"><img src="seller%20profile%20-%20mfkhandy_files/spacer.gif" height="9" width="6"></td>
+<td bgcolor="#ffffff" height="9" width="1"><img src="seller%20profile%20-%20mfkhandy_files/spacer.gif" height="9" width="1"></td>
+<td bgcolor="#ffffff" height="9" width="100%"><img src="seller%20profile%20-%20mfkhandy_files/spacer.gif" height="9" width="136"></td>
+<td bgcolor="#ffffff" height="9" width="4"><img src="seller%20profile%20-%20mfkhandy_files/spacer.gif" height="9" width="4"></td>
+<td bgcolor="#ffffff" height="9" width="3"><img src="seller%20profile%20-%20mfkhandy_files/spacer.gif" height="9" width="3"></td>
+<td bgcolor="#ffffff" height="9" width="6"><img src="seller%20profile%20-%20mfkhandy_files/spacer.gif" height="9" width="6"></td>
+<td bgcolor="#6699cc" height="9" width="2"><img src="seller%20profile%20-%20mfkhandy_files/spacer.gif" height="9" width="2"></td>
+</tr>
+
+<tr><td colspan="8" bgcolor="#6699cc" height="2"><img src="seller%20profile%20-%20mfkhandy_files/spacer.gif" height="2" width="1"></td></tr>
+
+<tr><td colspan="8" bgcolor="#ffffff" height="12" width="100%"><img src="seller%20profile%20-%20mfkhandy_files/spacer.gif" height="12" width="100%"></td></tr>
+</tbody></table>
+
+          </td>
+  </tr>
+</tbody></table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <table border="0" cellpadding="0" cellspacing="0" width="100%">
+  <tbody><tr>
+  <td width="100%">
+
+  
+
+  
+
+  
+  
+  <table border="0" cellpadding="4" cellspacing="0">
+  <tbody><tr>
+  
+  <td valign="top"><img src="seller%20profile%20-%20mfkhandy_files/books_icon.gif"></td>
+  <td valign="top" width="100%">
+  <font face="Verdana,Geneva,Arial" size="3"><b>Books Bestsellers</b></font>
+  <br><font face="Verdana,Geneva,Arial" size="2">357 products in <b>Books</b>. <a href="http://half.ebay.com/shops/shops.jsp?tag_name=books&amp;seller_id=274482">Browse all Books</a><br>
+  </font></td>
+  </tr>
+  </tbody></table>
+  
+
+  
+  <table border="0" cellpadding="0" cellspacing="0" width="100%">
+  <tbody><tr>
+  <td valign="top"><img src="seller%20profile%20-%20mfkhandy_files/shops_curve.gif"></td>
+  <td width="100%">
+  <table border="0" cellpadding="0" cellspacing="0" width="100%"><tbody><tr><td bgcolor="#6699cc" height="1" width="100%"><img src="seller%20profile%20-%20mfkhandy_files/spacer.gif" height="2" width="2"></td></tr></tbody></table>
+  
+
+  
+  <table border="0" cellpadding="4" cellspacing="0" width="100%"><tbody><tr><td bgcolor="#ffffff"><font face="Verdana,Geneva,Arial" size="1"> </font></td>
+  </tr></tbody></table></td>
+  </tr>
+  </tbody></table>
+  
+  
+  
+
+          <table border="0" cellpadding="6" cellspacing="2" width="100%">
+          <tbody><tr>
+          <td align="center" valign="top" width="70"><img src="seller%20profile%20-%20mfkhandy_files/spacer.gif" border="0" height="1" width="70"><br><a href="http://half.ebay.com/cat/buy/inv.cgi?offer_id=1238461886&amp;meta_id=1&amp;cpid=163088&amp;domain_id=1856&amp;fromstore=1"><img src="seller%20profile%20-%20mfkhandy_files/3899315.jpg" alt="Fahrenheit 451" border="0"></a></td>
+          <td valign="top" width="100%">
+          <font face="Verdana,Geneva,Arial" size="2">
+          <a href="http://half.ebay.com/cat/buy/inv.cgi?offer_id=1238461886&amp;meta_id=1&amp;cpid=163088&amp;domain_id=1856"><b>Fahrenheit 451</b></a>
+          Paperback, Reissue, 1995<br>
+          Ray Bradbury<br>
+          <font face="Verdana,Geneva,Arial" size="1">
+          <b>Condition:</b> Very Good<br>
+          
+          <b>Seller Comments:</b> Very tight. Minor shelf wear. Writing inside of front cover. Corner crease
+          | <a href="http://half.ebay.com/cat/buy/inv.cgi?offer_id=1238461886&amp;meta_id=1&amp;cpid=163088&amp;domain_id=1856&amp;fromstore=1">More info...</a></font><br>
+          <font color="#cc0000"><b>$1.75</b></font>
+          <a href="http://half.ebay.com/account/cart/cart.jsp?action=add&amp;item=1238461886&amp;fromshop=1"><img src="seller%20profile%20-%20mfkhandy_files/buy_button.gif" align="middle" border="0" hspace="4" vspace="4"></a></font></td>
+          </tr>
+  
+          <tr><td colspan="3"><table border="0" cellpadding="0" cellspacing="0" width="100%"><tbody><tr><td bgcolor="#dddddd" height="1" width="100%"><img src="seller%20profile%20-%20mfkhandy_files/spacer.gif" height="1" width="2"></td></tr></tbody></table></td></tr>
+  
+        
+        </tbody></table>
+
+        
+
+        
+
+  
+
+  
+
+          <table border="0" cellpadding="6" cellspacing="2" width="100%">
+          <tbody><tr>
+          <td align="center" valign="top" width="70"><img src="seller%20profile%20-%20mfkhandy_files/spacer.gif" border="0" height="1" width="70"><br><a href="http://half.ebay.com/cat/buy/inv.cgi?offer_id=1234323155&amp;meta_id=1&amp;cpid=1087731192&amp;domain_id=1856&amp;fromstore=1"><img src="seller%20profile%20-%20mfkhandy_files/2602044.jpg" alt="Eleventh Hour" border="0"></a></td>
+          <td valign="top" width="100%">
+          <font face="Verdana,Geneva,Arial" size="2">
+          <a href="http://half.ebay.com/cat/buy/inv.cgi?offer_id=1234323155&amp;meta_id=1&amp;cpid=1087731192&amp;domain_id=1856"><b>Eleventh Hour</b></a>
+          Hardcover, 2002<br>
+          Catherine Coulter<br>
+          <font face="Verdana,Geneva,Arial" size="1">
+          <b>Condition:</b> Like New<br>
+          
+          <b>Seller Comments:</b> SIGNED COPY~1st Edition
+          | <a href="http://half.ebay.com/cat/buy/inv.cgi?offer_id=1234323155&amp;meta_id=1&amp;cpid=1087731192&amp;domain_id=1856&amp;fromstore=1">More info...</a></font><br>
+          <font color="#cc0000"><b>$20.00</b></font>
+          <a href="http://half.ebay.com/account/cart/cart.jsp?action=add&amp;item=1234323155&amp;fromshop=1"><img src="seller%20profile%20-%20mfkhandy_files/buy_button.gif" align="middle" border="0" hspace="4" vspace="4"></a></font></td>
+          </tr>
+  
+          <tr><td colspan="3"><table border="0" cellpadding="0" cellspacing="0" width="100%"><tbody><tr><td bgcolor="#dddddd" height="1" width="100%"><img src="seller%20profile%20-%20mfkhandy_files/spacer.gif" height="1" width="2"></td></tr></tbody></table></td></tr>
+  
+        
+        </tbody></table>
+
+        
+
+        
+
+  
+
+  
+
+          <table border="0" cellpadding="6" cellspacing="2" width="100%">
+          <tbody><tr>
+          <td align="center" valign="top" width="70"><img src="seller%20profile%20-%20mfkhandy_files/spacer.gif" border="0" height="1" width="70"><br><a href="http://half.ebay.com/cat/buy/inv.cgi?offer_id=1205780133&amp;meta_id=1&amp;cpid=717066&amp;domain_id=1856&amp;fromstore=1"><img src="seller%20profile%20-%20mfkhandy_files/3970234.jpg" alt="Piercing the Darkness" border="0"></a></td>
+          <td valign="top" width="100%">
+          <font face="Verdana,Geneva,Arial" size="2">
+          <a href="http://half.ebay.com/cat/buy/inv.cgi?offer_id=1205780133&amp;meta_id=1&amp;cpid=717066&amp;domain_id=1856"><b>Piercing the Darkness</b></a>
+          Paperback, 1989<br>
+          Frank Peretti<br>
+          <font face="Verdana,Geneva,Arial" size="1">
+          <b>Condition:</b> Acceptable<br>
+          
+          <b>Seller Comments:</b> Pages are very tight and everything is intact. Moisture stain along bottom edge of pages that does <a href="http://half.ebay.com/cat/buy/inv.cgi?offer_id=1205780133&amp;meta_id=1&amp;cpid=717066&amp;domain_id=1856&amp;fromstore=1">...</a>
+          | <a href="http://half.ebay.com/cat/buy/inv.cgi?offer_id=1205780133&amp;meta_id=1&amp;cpid=717066&amp;domain_id=1856&amp;fromstore=1">More info...</a></font><br>
+          <font color="#cc0000"><b>$0.75</b></font>
+          <a href="http://half.ebay.com/account/cart/cart.jsp?action=add&amp;item=1205780133&amp;fromshop=1"><img src="seller%20profile%20-%20mfkhandy_files/buy_button.gif" align="middle" border="0" hspace="4" vspace="4"></a></font></td>
+          </tr>
+  
+          <tr><td colspan="3"><table border="0" cellpadding="0" cellspacing="0" width="100%"><tbody><tr><td bgcolor="#dddddd" height="1" width="100%"><img src="seller%20profile%20-%20mfkhandy_files/spacer.gif" height="1" width="2"></td></tr></tbody></table></td></tr>
+  
+        
+          
+          <tr>
+          <td valign="top" width="70"></td>
+          <td valign="top" width="100%">
+  
+          <font face="Verdana,Geneva,Arial" size="2"><img src="seller%20profile%20-%20mfkhandy_files/blue_arrow_white.gif"> <a href="http://half.ebay.com/shops/shops.jsp?tag_name=books&amp;seller_id=274482">See more in Books</a></font></td>
+          </tr>
+
+          <tr><td colspan="3"><table border="0" cellpadding="0" cellspacing="0" width="100%"><tbody><tr><td bgcolor="#dddddd" height="1" width="100%"><img src="seller%20profile%20-%20mfkhandy_files/spacer.gif" height="1" width="2"></td></tr></tbody></table></td></tr>
+          </tbody></table><br><img src="seller%20profile%20-%20mfkhandy_files/spacer.gif" 24="" height="" width="1"><br>
+        
+
+        
+
+  
+
+  
+
+  
+  
+  <table border="0" cellpadding="4" cellspacing="0">
+  <tbody><tr>
+  
+  <td valign="top"><img src="seller%20profile%20-%20mfkhandy_files/music_icon.gif"></td>
+  <td valign="top" width="100%">
+  <font face="Verdana,Geneva,Arial" size="3"><b>Music Bestsellers</b></font>
+  <br><font face="Verdana,Geneva,Arial" size="2">21 products in <b>Music</b>. <a href="http://half.ebay.com/shops/shops.jsp?tag_name=music&amp;seller_id=274482">Browse all Music</a><br>
+  </font></td>
+  </tr>
+  </tbody></table>
+  
+
+  
+  <table border="0" cellpadding="0" cellspacing="0" width="100%">
+  <tbody><tr>
+  <td valign="top"><img src="seller%20profile%20-%20mfkhandy_files/shops_curve.gif"></td>
+  <td width="100%">
+  <table border="0" cellpadding="0" cellspacing="0" width="100%"><tbody><tr><td bgcolor="#6699cc" height="1" width="100%"><img src="seller%20profile%20-%20mfkhandy_files/spacer.gif" height="2" width="2"></td></tr></tbody></table>
+  
+
+  
+  <table border="0" cellpadding="4" cellspacing="0" width="100%"><tbody><tr><td bgcolor="#ffffff"><font face="Verdana,Geneva,Arial" size="1"> </font></td>
+  </tr></tbody></table></td>
+  </tr>
+  </tbody></table>
+  
+  
+  
+
+          <table border="0" cellpadding="6" cellspacing="2" width="100%">
+          <tbody><tr>

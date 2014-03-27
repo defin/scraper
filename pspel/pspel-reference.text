@@ -1,0 +1,394 @@
+===== PSPEL - Page Scraping Pattern Expression Language =====
+
+== 0.1: Regular Expressions ==
+
+Regular Expressions are allowed anywhere a string value is given (for instance a tag attribute value, or a
+Content Expression).  Perl-Compatible (PCRE) syntax is the default, POSIX syntax is also available.
+
+== 1.2: Match Expressions ==
+
+Match Expressions are the building blocks of PSPEL.  Match Expressions are built up out of other
+Match Expressions, recursively.  Everything in the pattern language is a Match Expression and most
+Match Expressions can be substituted freely inside other Match Expressions.  There are some
+limitations, for instance it is nonsensical to put a COND inside of a SEARCH so that is not supported.
+Sensible operations like putting ONEOF inside of a SEARCH are supported.  The language attempts to support
+all reasonable usages.  Generally a series of expressions are tied together with an AND at the root.
+
+The execution model of the engine is that, for each top-level match expression given, the entire expression
+must match successfully (including all subexpressions) or the whole top-level match fails, and all further
+top-level matches for the document are abandoned.  This all-or-nothing operation helps prevent data corruption
+by not attempting to match any further after synchronization between the match expression and the document
+has been lost.  It is possible (and sometimes necessary) to include failing matches in protected expressions
+such as IF, WHEN, UNLESS, COND, and CHUNKCASE.  As long as these expressions provide some execution pathway
+that matches successfully they are considered successful.
+
+Match Expressions are categorized into several basic forms: Content Expressions, Tag Expressions,
+Match Variables, Iteration Variables, Special Patterns, and Match Functions.
+Each of these forms are discussed below.
+
+== 1.2.0: Cursor Effects ==
+
+The cursor represents the current position in the document.  The cursor always moves forward, it can
+never move backward, and there is no backtracking (backtracking will be implemented in a future release).
+Some Match Expressions have an effect on the cursor (moving it forward one or many chunks), others have
+no effect.  Cursor Effects for every expression are explained in the expression's documentation.
+
+== 1.2.1: Chunks ==
+
+All document structures, whether tags or content, are generically referred to as "chunks", there are
+many expressions in the language that can accept any kind of chunk, and some expressions specialized
+to matching tags or content specifically.
+
+== 1.2.1.1: Content Expressions ==
+
+"... document content ..."
+
+A Match Expression consisting of a double quote, some text and another double quote is
+matched against document content in the current cursor position.
+Regular Expressions are allowed.  "" matches empty document content.
+
+The document content is stored as an object of class CONTENT.  The actual text is in a slot called
+TEXT.  To get the text of some document content into a variable you generally use ?variable-name.text.
+
+Note: As part of the HTML tokenization process, all document content between two tags is considered a
+single token and is collected into a single object.  Leading and trailing whitespace is removed.
+HTML Character Entities (&amp; etc) are substituted in place with their standard values.
+
+Content Expressions move the cursor forward 1 on match.
+
+== 1.2.1.2: Tag Expressions ==
+
+[tagname ... attribute-name=attribute-value ...]
+[/tagname]
+[tagname ... attribute-name=attribute-value ... /]
+
+Any valid HTML 4.01 tag construction is accepted (all start tags, end tags, and empty element tags),
+using square brackets instead of the standard angle brackets.  An empty element tag (like <br />)
+in the document must be matched by an empty element tag expression (like [br /]).  Likewise
+start tags (like <table>) must be matched by a start tag expression (like [table]).  End tags
+(like </table>) must accordingly be matched by a end tag expression (like [/table]).
+
+Classes are predefined for all standard tags with slots for all their standard attributes.
+(The HTML 4.01 Loose DTD is the only DTD currently supported. There is preliminary support for XHTML 1.0.)
+
+All attributes specified in the Tag Expression must match, Regular Expressions in string values are allowed.
+Unspecified attributes (attributes present in the tag in the document but not in the Tag Expression) are
+treated as wildcards.  To match a tag with any attributes whatsoever or none use [tagname] or [tagname /],
+depending on how the tag is written in the document.
+
+Nonstandard attributes are stored in the tag object by a special internal mechanism, they aren't actually slots
+in the tag object like standard attributes are, but they behave the same way.
+Nonstandard tags are parsed as a unknown-tag class internally, but through a special mechanism they behave like
+any standard tag object.  So for instance if you needed to scrape a document containing:
+  <zorch snorkle="glorp">
+and the value of snorkle was important to you, you could easily use:
+  [zorch] ?snark.snorkle
+and the variable ?snark.snorkle would contain the value of the snorkle attribute of the zorch tag, even though
+snorkle is a unknown attribute of an unknown tag.  Mechanisms are in place to make it work right in all cases.
+
+Tag Expressions move the cursor forward 1 on match.
+
+== 1.2.1.3: Numeric Expressions ==
+
+Integer numbers standing by themselves match N number of chunks of any kind, where N is the value of the integer.
+Their effect on the cursor is to move it forward N times.
+
+== 1.2.2: Variables ==
+
+== 1.2.2.1: Match Variables ==
+
+A Match Variable is any name starting with '?'.  They can be used anywhere a value can be used, however
+they can only be assigned to once.  Generally you assign them immediately following a successful match
+of some chunk in the document.  In this case there are two valid forms: ?variable-name assigns the
+match variable to the entire object matched from the document (the tag object if its a tag, or the
+content object if its content).  ?variable-name.attribute assigns the match variable to just the
+value of the named attribute of the chunk.
+Matching them has no cursor effects.
+
+== 1.2.2.2: Iteration Variables ==
+
+An Iteration Variable is any name starting with '@'.  They can be used anywhere a value can be used, but
+only inside of loops.  In addition their value gets reset on each iteration of the loop.  Otherwise
+they behave like Match Variables.
+Matching them has no cursor effects.
+
+== 1.2.3: Self-Matching Constants ==
+
+A Self-Matching Constant (also known as a Keyword) is any name starting with ':'.  Generally they can
+occur anywhere any other Match Expression can occur, except inside SEARCH expressions.  They match
+as themselves (which always results in the match succeeding) and their values cannot be modified.
+Some Match Functions are able to use keywords for special uses, but almost always they have no effect.
+Matching them has no cursor effects.
+
+== 1.2.4: Special Patterns ==
+
+== 1.2.4.1: Position-accessing Patterns ==
+
+CURRENT-CHUNK
+Cursor Effect: None
+Description: Holds the value of, and matches the most recently matched chunk.
+
+PREVIOUS-CHUNK
+Cursor Effect: None
+Description: Holds the value of, and matches the next-most recently matched chunk.
+
+== 1.2.4.2: Wildcard Patterns ==
+
+START-TAG
+Cursor Effect: Forward 1
+Description: Match the next chunk if its a start tag.
+
+END-TAG
+Cursor Effect: Forward 1
+Description: Match the next chunk if its an end tag.
+
+EMPTY-ELEMENT-TAG
+Cursor Effect: Forward 1
+Description: Match the next chunk if its an empty-element tag.
+
+TAG
+Cursor Effect: Forward 1
+Description: Match the next chunk if its a tag.
+
+CONTENT
+Cursor Effect: Forward 1
+Description: Match the next chunk if its some content.
+
+NEXT
+Cursor Effect: Forward 1
+Description: Always match the next chunk.
+
+== 1.2.4.3: Special Values ==
+
+PASS / T
+Cursor Effect: None
+Description: Always true (continue matching).
+Either PASS or T can be used, interchangably, though T is preferred
+in boolean expressions and PASS is preferred in control flow.
+
+FAIL / NIL
+Cursor Effect: None
+Description: Always false (ends innter match).
+Either PASS or T can be used, interchangably, though NIL is preferred
+in booleans and FAIL is preferred in control flow.
+
+LOOP-VALUE
+(Only available inside loop expressions)
+Cursor Effect: None
+Description: Special variable that can be assigned any number of times.  The value
+of LOOP-VALUE is used as the value of the entire loop expression.  It defaults to T.
+If the function COLLECT is used on some value, that value is collected in-order into
+LOOP-VALUE.
+
+LOOP-ITERATION
+(Only available inside loop expressions)
+Cursor Effect: None
+Description: Special variable which holds the number (starting from 1) of the current
+iteration of the loop which is executing.
+
+== 1.2.5: Match Functions ==
+
+== 1.2.5.1: Boolean Functions ==
+
+OR                                              (match-expression+)
+Cursor Effect: Whatever the effect of the contained patterns
+Description: Boolean OR expression.  Takes any number of match expressions, keeps attempting
+matches until one of them succeeds.
+
+AND                                             (match-expression+)
+Cursor Effect: Whatever the effect of the contained patterns
+Description: Boolean OR expression.  Takes any number of match expressions, keeps attempting
+matches until one of them fails.
+
+NOT                                             (match-expression)
+Cursor Effect: Whatever the effect of the contained pattern
+Description: Boolean NOT expression.  Reverses the truth value of MATCH-EXPRESSION.
+
+== 1.2.5.2: Predicate Functions ==
+
+CONTENT=                                        (content1 content2)
+Cursor Effect: None
+Description: True if content1 and content2 are identical, otherwise false.
+
+CONTENT-MATCH                                   (content1 content2)
+Cursor Effect: None
+Description: True if content1 and content2 match, otherwise false.
+
+CHUNK-MATCH                                     (chunk1 chunk2)
+Cursor Effect: None
+Description: True if chunk1 and chunk2 match, otherwise false.
+
+TYPEP                                           (object typename)
+Cursor Effect: None
+Description: True if OBJECT is of type TYPENAME (for instance, the name of any HTML tag, or CONTENT.)
+Example: (typep current-chunk tr)
+
+== 1.2.5.3: Control-Flow Functions ==
+
+== 1.2.5.3.1: Single-Test Conditional Functions ==
+
+IF                                              (test then else)
+Cursor Effect: Whatever the effect of the contained patterns
+Description: If the TEST expression matches (t / pass) then match the THEN expression,
+otherwise (nil / fail) then match the ELSE expression.
+
+WHEN                                            (test then+)
+Cursor Effect: Whatever the effect of the contained patterns
+Description: If TEST matches, execute THEN patterns.  The value of WHEN is the value of the
+last contained expression.
+
+UNLESS                                          (test then+)
+Cursor Effect: Whatever the effect of the contained patterns
+Description: Equivalent to (when (not test) then).
+
+== 1.2.5.3.2: Multiple-Test Conditional Functions ==
+
+COND                                            (cond-clause+)
+Cursor Effect: Whatever the effect of the contained patterns
+Description: Cond is a generalized conditional.  It accepts one or more COND-CLAUSEs.
+A Cond Clause is an expression of the form ((test) then+).  Cond tries each of the TEST matches
+in order until one of them succeeds, then it matches the THEN pattern corresponding to it and
+returns as its value the value of the last expression matched.  If T is used as the test pattern
+then it always matches and the THEN expressions are always executed.  This is usually done at the
+end of a series of other cond clauses, to provide a default case.
+
+COND-EVERY                                      (cond-clause+)
+Cursor Effect: Whatever the effect of the contained patterns
+Description: Identical to COND, except that it does not terminate matching at the first successful
+clause, it keeps matching through all the clauses, executing each THEN expression in turn,
+returning as its value the value of the last expression matched.
+
+CHUNKCASE                                       (case-clause+)
+Cursor Effect: Whatever the effect of the contained patterns
+Description: Chunkcase is a case matcher for chunks.  Each CASE-CLAUSE is an expression of
+the form (chunk-expression then+) where chunk-expression can be any content or tag expression.
+If any of the CHUNK-EXPRESSIONs match, the corresponding THEN expressions are matched.  No further
+testing of CHUNK-EXPRESSIONS occurs after this point.  As in COND, you can use T as a CHUNK-EXPRESSION
+and it will always match, useful for specifying a default match path.
+
+== 1.2.5.3.3: Iteration Functions ==
+
+WHILE                                           (match-expression+)
+Cursor Effect: Whatever the effect of the contained patterns
+Description: Match all MATCH-EXPRESSIONs in order, looping while the last match-expression succeeds.
+During loop execution, Iteration Variables can be used, as well as the Special Pattern LOOP-VALUE,
+which can be assigned to or PUSHed onto any number of times.  When the loop finishes the
+value of LOOP-VALUE becomes the value of the loop expression.  The default value of LOOP-VALUE is T.
+
+UNTIL                                           (match-expression+)
+Cursor Effect: Whatever the effect of the contained patterns
+Description: Match all MATCH-EXPRESSIONs in order, looping until the last match-expression succeeds.
+During loop execution, Iteration Variables can be used, as well as the Special Pattern LOOP-VALUE,
+which can be assigned to or PUSHed onto any number of times.  When the loop finishes the
+value of LOOP-VALUE becomes the value of the loop expression.  The default value of LOOP-VALUE is T.
+
+DOTIMES                                         ((iteration-var times) match-expression+)
+Cursor Effect: Whatever the effect of the contained patterns
+Description: Repeatedly match MATCH-EXPRESSIONs the number of iterations given by TIMES, incrementing
+the value of the Iteration Variable ITERATION-VAR each iteration.
+During loop execution, Iteration Variables can be used, as well as the Special Pattern LOOP-VALUE,
+which can be assigned to or PUSHed onto any number of times.  When the loop finishes the
+value of LOOP-VALUE becomes the value of the loop expression.  The default value of LOOP-VALUE is T.
+
+== 1.2.5.3.3.1: Iteration-only Functions ==
+
+COLLECT                                         (value)
+Cursor Effect: None
+Description: Add VALUE to the loop's internal value list.  LOOP-VALUE can be used to check
+the current collection, and is used as the value of the loop upon termination.
+
+== 1.2.5.3.4: Expression Grouping Functions ==
+
+GROUP                                           (match-expression+)
+Cursor Effect: Whatever the effect of the contained patterns
+Description: Match everything inside the group, returning the value of the last match as the
+value of the whole group.  Among other uses, this can be used to chain together a series of matches,
+some of which may fail without breaking the series.
+
+GROUP1                                          (match-expression+)
+Cursor Effect: Whatever the effect of the contained patterns
+Description: Match everything inside the group, returning the value of the first match as the
+value of the whole group.
+
+LANDMARK                                        (match-expression+)
+Cursor Effect: Whatever the effect of the contained patterns
+Description: Compiled as AND.  Use this to signal in your code to human readers that the code is
+searching for a specific landmark.  Helps organize sections of patterns.
+
+DATA                                            (match-expression+)
+Cursor Effect: Whatever the effect of the contained patterns
+Description: Compiled as AND.  Use this to signal in your code to human readers that the code is
+searching for specific data.  Helps organize sections of patterns.
+
+== 1.2.5.4: Regular Functions ==
+
+Functions derived from Regular grammars.
+
+SEARCH                                          (match-expression+)
+Cursor Effect: Forward Any Amount
+Description: Scan through document looking for a chunk that matches the first match expression
+given. If more than one match expression is given, continue searching until the
+next one matches, continuing until all the match-expressions given have been exhausted.
+
+NTH                                             (n chunk-expression)
+Cursor Effect: Forward Any Amount
+Description: Search forward through N occurences of CHUNK-EXPRESSION.
+
+ONEOF                                           (chunk-expression+)
+Cursor Effect: Forward 1
+Description: Match one of any of the chunks given.
+
+== 1.2.5.5: Value Functions ==
+
+Functions for modification and checking of values.
+
+ASSIGN                                          (place value)
+Cursor Effect: None
+Description: Set PLACE to VALUE.  Matches VALUE.
+
+VALUE                                           (variable-name)
+Cursor Effect: None
+Description: Matches the value of VARIABLE-NAME.
+
+SLOT                                            (variable-name slot-name)
+Cursor Effect: None
+Description: Extract the value in slot SLOT-NAME out of the object stored in VARIABLE-NAME.
+
+== 1.2.5.6: Path Functions ==
+
+Partially Implemented.  Not ready for use.
+
+PATH                                            (tag-expression+)
+(Not Fully Implemented)
+Cursor Effect: None
+Description: True if the current absolute path in the document tree corresponds with the path specified.
+
+RELATIVE-PATH
+(Not Fully Implemented)
+Cursor Effect: None
+Description: True if the current relative path in the document tree corresponds with the path specified.
+
+== 1.2.5.7: Miscellaneous Functions ==
+
+Environment, debugging and host language escape functions.
+
+REPORT                                          (string)
+Cursor Effect: None
+Description: Print STRING to debug output stream.
+
+FREPORT                                         (control-string argument+)
+Cursor Effect: None
+Description: Print STRING to debug output stream using formatted output.
+CONTROL-STRING is interpreted according to the rules given in CLHS, section 22.3,
+and ARGUMENTs are consumed as needed by the control string.  See
+http://www.lisp.org/HyperSpec/Body/sec_22-3.html for more details.
+
+LISP                                            (lisp-form+)
+Cursor Effect: Whatever the effect of the contained forms
+Description: All LISP-FORMs are passed to lisp for inline execution.  The embedded lisp code is compiled
+in the same lexical environment as the pattern match so it has access to all Match Variables (and, if the
+LISP expression is inside a loop expression, all Iteration Variables and LOOP-VALUE as well).  The value
+of the LISP expression is the value of the last LISP-FORM executed.
+Note: It is possible using some LISP-FORMs to change the value of Match Variables and Iteration Variables
+beneath the notice of the language analyzer.  Doing so is strongly discouraged as the results are unspecified
+and probably undesirable.

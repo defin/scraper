@@ -1,0 +1,97 @@
+8
+
+dir
+1
+file:///_SVN_/share/trunk/scraper/markup-parser/tests
+file:///_SVN_/share
+
+
+
+2007-04-05T22:08:43.796875Z
+1
+df
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+bc905d92-164c-9247-8b80-2592e68af4f2
+
+results
+file
+
+
+
+
+2007-04-05T22:19:26.125000Z
+a4a7616ae62fc97138b6b9ad5cc7c357
+2007-04-05T22:08:43.796875Z
+1
+df
+
+test.lisp
+file
+2
+
+
+
+2007-04-09T00:52:56.296875Z
+48e729d2963a9ebddb7b62b82e3e1397
+2007-08-12T09:06:27.828125Z
+2
+df
+
+test.ufasl
+file
+
+
+
+
+2007-04-05T22:19:26.140625Z
+33f77336e4795e2f5aa1946569961e60
+2007-04-05T22:08:43.796875Z
+1
+df
+has-props
+
+tokenizer
+dir
+
+test.wfasl
+file
+2
+
+
+
+2007-04-22T18:04:26.453125Z
+cdd5fccd1a97b7b8e0a1515fecbf17da
+2007-08-12T09:06:27.828125Z
+2
+df
+has-props
+
+parser
+dir
+
+test.u6fasl
+file
+
+
+
+
+2007-04-05T22:19:26.140625Z
+0c40b0dc99cb0344bb19d535b62e1958
+2007-04-05T22:08:43.796875Z
+1
+df
+has-props
+

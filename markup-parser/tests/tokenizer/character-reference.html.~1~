@@ -1,0 +1,12 @@
+<html>
+<foo bar="&amp;">
+&amp;
+foo &amp; bar
+foo &#160; bar
+foo &amp;</html>
+foo &amp
+foo &amp</html>
+<foo bar="&baz=1">
+<foo bar="&baz=1&plugh=5">
+<font face="Arial,Verdana,Geneva,Helvetica" size="2"><a href="http://half.ebay.com/">Home</a> &gt; mfkhandy<br>
+

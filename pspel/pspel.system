@@ -1,0 +1,8 @@
+(in-package cl-user)
+
+(defsystem :pspel (:pretty-name "Page Scraping Pattern Expression Language"
+				  :default-pathname "share:scraper;pspel;")
+  (:serial "compiler" "transforms"))
+
+
+

@@ -1,0 +1,29 @@
+currntly the skip-to functions can keep tags and text from being copied and processed into user space.. thats good but it would be better if they could manage to signal down to the lowst level of the parser.. like when i say (skip-to-tag "<tr>") i should be able to filter that at the point where i read in the token stream.  if the tag name isn't ELT, why even bother building the tag structure?  just a waste of time.. i bet i could really optimize it because most of the parsers time is spent handling this kind of noise.. (skip-to-nth 5) could work similarly, the tag builder could keep a counter..
+hmm.. this osunds good and would probably be very fast but the big problem with it is there is no way to keep track of your token stack for handling the path... on the other hand the path functionality is broken anyways and is most likely where the memory leak is happening.. i should have a mode for the parser to just turn that off completely.. and only turn it on when i need to do path-based work.. which obviously then would have to be a lot slower (like the current system).. it really seems like it would be a lot faster to not build up all the tags in between the interesting points.
+another problem with this is keeping track of the previous chunk, which is important to a variety of operations.
+hmmhmm hmm.  this is really promising but i need to think more about how to make it all work together.
+in any case i need to have a way to turn off the path stuff cause it just slows things down and probably leaks memory and i mostly never use it because its mostly broken.  i dont think anything inside the parser itself depends on that.
+
+documentation of PREVIOUS-CHUNK slot claims its for callers of the parser... so maybe it can be turned off.
+hmm PATH-PUSH calls REPORT-CHUNK. . need to have someone else call that after PATH-PUSH gets called.
+need to make sure these functions don't perform any other important operations that don't have
+to do with paths.
+
+slots:
+PATH BASE-PATH DEPTH INDENTATION-FACTOR REPORT-PATH-P
+implementation:
+*PRINT-SHORT-PATHS* REPORT-PATH PATH-MATCH PATH-PUSH PATH-POP-TO-MATCH
+callers:
+ABANDON-PARSING
+
+
+;; i should drop the accessor functions from the element attributes, just have a single ATTRIBUTE accessor that
+;; also knows how to retrieve/store unknown attributes
+
+; i think each marketplace should have its own database of sellers, books available from each seller, seperate from the main databse which keeps core business data
+; marketplace data is easy regenerable.. but sellers we've actually bought from should still be listed in the main database, along with the pointers to the books
+; we've bought
+
+should make a constructor function for database objects that first creates the empty object, then registers it in the identity map, then initializes all the slots according to its arguments
+
+fix multiton bug, noted in singleton-standard-class.lisp

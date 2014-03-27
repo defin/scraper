@@ -1,0 +1,505 @@
+(in-package dtd-base)
+
+(defclass dtd ()
+  ((handle :accessor dtd-handle
+	   :initarg :handle)
+   (public-identifier :accessor dtd-public-identifier
+		      :initarg :public-identifier)
+   (system-identifier :accessor dtd-system-identifier
+		      :initarg :system-identifier)
+   (package :accessor dtd-package
+	    :initarg :package)
+   (character-entity-table :accessor dtd-character-entity-table
+			   :initform (make-character-entity-set-table))))
+
+(defvar *print-object-identity* nil)
+
+(defmethod print-object ((object dtd) (stream stream))
+  (print-unreadable-object (object stream :type t :identity *print-object-identity*)
+    (format stream "~A" (dtd-public-identifier object))))
+
+(defmethod resolve-name ((name string) (dtd dtd))
+  (intern name (dtd-package dtd)))
+  
+(defvar *dtd-identifier-table* (make-hash-table :test 'string=))
+(defvar *dtd-handle-table* (make-hash-table))
+
+(defun register-dtd (handle public-identifier)
+  (let ((dtd (make-instance 'dtd
+			    :handle handle
+			    :public-identifier public-identifier
+			    :package (find-package (symbol-name handle)))))
+    (setf (gethash public-identifier *dtd-identifier-table*) dtd)
+    (setf (gethash handle *dtd-handle-table*) dtd)
+    dtd))
+
+(defun find-dtd (handle-or-identifier)
+  (etypecase handle-or-identifier
+    (string (gethash handle-or-identifier *dtd-identifier-table* :dtd-not-found))
+    (symbol (gethash handle-or-identifier *dtd-handle-table* :dtd-not-found))))
+
+;;; Element base class
+
+(defclass chunk ()
+  ())
+
+(defmethod make-load-form ((c chunk) &optional environment)
+  (make-load-form-saving-slots c :environment environment))
+
+(defclass element (chunk)
+  ())
+
+(defclass deprecated-element (element)
+  ())
+
+(defclass end-tag-forbidden-element (element)
+  ())
+
+(defclass end-tag-optional-element (element)
+  ())
+
+(defclass start-and-end-tag-optional-element (end-tag-optional-element)
+  ())
+
+(defclass unknown-element (element)
+  ((name
+    :accessor element-name
+    :initarg :name
+    :type name)))
+
+(defresource (unknown-element)
+  :constructor #'make-instance
+  :deinitializer #'reinitialize-object)
+
+(defclass unknown-attribute (chunk) ; !BUG an unknown attribute is not a chunk!
+  ((name
+    :accessor unknown-attribute-name
+    :initarg :name)
+   (value
+    :accessor unknown-attribute-value
+    :initarg :value)))
+
+(defmethod print-object ((attribute unknown-attribute) (stream stream))
+  (print-unreadable-object (attribute stream :type t :identity *print-object-identity*)
+    (format stream "~S value ~S" (unknown-attribute-name attribute) (unknown-attribute-value attribute))))
+
+(defresource (unknown-attribute)
+  :constructor #'make-instance
+  :reinitializer #'reinitialize-object)
+
+(defresource (object-array)
+  :constructor #'(lambda () (make-array 256 :element-type t :adjustable t :fill-pointer 0))
+  :deinitializer #'reset-buffer)
+
+(defclass start-tag ()
+  ((.unknown-attributes.
+    :initarg :unknown-attributes
+    :accessor element-unknown-attributes
+    :type vector)))
+
+(defmethod print-object ((tag start-tag) (stream stream))
+  (print-unreadable-object (tag stream :type nil :identity *print-object-identity*)
+    (let ((known nil))
+      (format stream "~A" (symbol-name (type-of tag)))
+      (map-element-known-attributes #'(lambda (slot-name)
+					(when (slot-boundp tag slot-name)
+					  (format stream " ~A=~S" slot-name (slot-value tag slot-name))
+					  (setf known t)))
+				    tag)
+      (unless (zerop (fill-pointer (element-unknown-attributes tag)))
+	(if known
+	    (format stream " and unknown attributes")
+	    (format stream " with unknown attributes"))
+	(map-element-unknown-attributes #'(lambda (a)
+					    (format stream " ~A=~S" (unknown-attribute-name a) (unknown-attribute-value a)))
+					tag)))))
+
+(defmethod map-element-known-attributes ((function function) (element element))
+  (let ((known-attributes (mop:class-direct-slots (find-class (type-of element)))))
+    (dolist (s known-attributes)
+      (let ((slot-name (mop:slot-definition-name s)))
+	(funcall function slot-name)))))
+
+(defmethod map-element-unknown-attributes ((function function) (element element))
+  (with-accessors ((unknown-attributes element-unknown-attributes)) element
+    (unless (zerop (fill-pointer unknown-attributes))
+      (loop for i from 0 below (fill-pointer unknown-attributes)
+	    as a = (aref unknown-attributes i)
+	    do (funcall function a)))))
+
+(defun make-start-tag (class &rest initargs)
+  (let ((object-array (claim-resourced-object 'object-array)))
+    #+resource-annotations (push '(claimed-by make-start-tag) (resourced-object-annotations 'object-array object-array))
+    (if (and (find-class class nil)
+	     (subtypep class 'start-tag))
+	(apply #'claim-resourced-object class :unknown-attributes object-array initargs)
+	(apply #'claim-resourced-object 'unknown-start-tag :name class :unknown-attributes object-array initargs))))
+
+(defun deinitialize-start-tag (tag)
+  (let ((attributes (element-unknown-attributes tag)))
+    (loop for i from 0 below (length attributes)
+	  do (release-resourced-object 'unknown-attribute (aref attributes i)))
+    #+resource-annotations (push '(released-by deinitialize-start-tag) (resourced-object-annotations 'object-array attributes))
+    (release-resourced-object 'object-array attributes))
+  t)
+
+(defclass end-tag ()
+  ())
+
+(defmethod print-object ((tag end-tag) (stream stream))
+  (print-unreadable-object (tag stream :type t :identity *print-object-identity*)))
+
+(defun make-end-tag (class &rest initargs)
+  (if (and (find-class class nil)
+	   (subtypep class 'end-tag))
+      (apply #'claim-resourced-object class class initargs)
+      (apply #'claim-resourced-object 'unknown-end-tag :name class initargs)))
+
+(defclass unknown-start-tag (start-tag unknown-element)
+  ((.unknown-attributes.
+    :initarg :unknown-attributes
+    :accessor element-unknown-attributes
+    :type vector)))
+
+(defmethod print-object ((tag unknown-start-tag) (stream stream))
+  (print-unreadable-object (tag stream :type nil :identity *print-object-identity*)
+    (format stream "~A [unknown start tag]" (element-name tag))
+    (unless (zerop (fill-pointer (element-unknown-attributes tag)))
+      (format stream " with unknown attributes"))
+    (map-element-unknown-attributes #'(lambda (a)
+					(format stream " ~A=~S" (unknown-attribute-name a) (unknown-attribute-value a)))
+				    tag)))
+
+(defun deinitialize-unknown-start-tag (tag)
+  (let ((attributes (element-unknown-attributes tag)))
+    (loop for i from 0 below (length attributes)
+	  do (release-resourced-object 'unknown-attribute (aref attributes i)))
+    #+resource-annotations (push '(released-by deinitialize-unknown-start-tag) (resourced-object-annotations 'object-array attributes))
+    (release-resourced-object 'object-array attributes)))
+
+(defresource (unknown-start-tag)
+  :constructor #'make-instance
+  :reinitializer #'reinitialize-object
+  :deinitializer #'deinitialize-unknown-start-tag)
+
+(defclass unknown-end-tag (end-tag unknown-element)
+  ())
+
+(defmethod print-object ((tag unknown-end-tag) (stream stream))
+  (print-unreadable-object (tag stream :type nil :identity *print-object-identity*)
+    (format stream "~A [unknown end tag]" (element-name tag))))
+
+(defresource (unknown-end-tag)
+  :constructor #'make-instance
+  :reinitializer #'reinitialize-object)
+
+(defclass empty-element-tag (start-tag)
+  (
+;; removed .. doesnt seem to be used for anything.. why was it ever put in?
+;(saved-start-tag 
+;    :accessor empty-element-tag-saved-start-tag)))
+   ))
+
+(defclass unknown-empty-element-tag (empty-element-tag unknown-element)
+  ())
+
+(defresource (unknown-empty-element-tag)
+  :constructor #'make-instance
+  :deinitializer #'reinitialize-object)
+
+(defclass markup-declaration (chunk) ; <! ...>
+  ((data :accessor markup-declaration-data
+	 :initarg :data))) ; xml doesnt allow comments other than comment declarations..
+
+(defresource (markup-declaration)
+  :constructor #'make-instance
+  :deinitializer #'reinitialize-object)
+
+(defclass markup-comment (markup-declaration) ; <!-- : comment elements only, inline comments are in element structure
+  ((comments
+    :accessor markup-declaration-comments
+    :initform (let ((ob (claim-resourced-object 'object-array)))
+		#+resource-annotations (push '(claimed-by make-instance markup-comment) (resourced-object-annotations 'object-array ob))
+		ob))))
+
+(defun deinitialize-markup-comment (comment)
+;  (let ((comments (markup-declaration-comments comment)))
+;    (loop for i from 0 below (length comments)
+;	  do (toke:release-token-buffer (aref comments i) '(released-by deinitialize-markup-comment)))
+;    #+resource-annotations (push '(released-by deinitialize-markup-comment) (resourced-object-annotations 'object-array comments))
+;    (release-resourced-object 'object-array comments)))
+  (declare (ignore comment)))
+
+(defresource (markup-comment)
+  :constructor #'make-instance
+  :reinitializer #'reinitialize-object)
+ ; :deinitializer #'deinitialize-markup-comment)
+
+(defmethod print-object ((comments markup-comment) (stream stream))
+  (print-unreadable-object (comments stream :type t :identity *print-object-identity*)
+    (let ((comments (markup-declaration-comments comments)))
+      (loop for i from 0 below (fill-pointer comments)
+	    do (format stream "\"~A\" " (aref comments i))))))
+
+(defclass processing-instruction (chunk) ; <? ... ?>
+  ((data :accessor processing-instruction-data
+	 :initarg :data)))
+
+(defresource (processing-instruction)
+  :constructor #'make-instance
+  :deinitializer #'reinitialize-object)
+
+(defclass content (chunk)
+  ((text
+    :initarg :text
+    :accessor content-text
+    :type string)
+   (mode
+    :initarg :mode
+    :initform nil
+    :accessor content-mode
+    :type symbol)
+   (extra-data
+    :initarg :extra-data
+    :accessor content-extra-data
+    :initform nil
+    :type t)))
+
+(defmethod print-object ((content content) (stream stream))
+  (print-unreadable-object (content stream :type t :identity *print-object-identity*)
+    (if (slot-boundp content 'text)
+	(format stream "\"~A\"" (content-text content))
+	(format stream "[no content]"))
+    (if (slot-boundp content 'extra-data)
+	(format stream " extra data: \"~A\"" (content-extra-data content)))))
+
+(defresource (content)
+  :constructor #'make-instance
+  :reinitializer #'reinitialize-object
+  :deinitializer #'reinitialize-object)
+
+(defclass start-of-document (chunk)
+  ())
+
+(defresource (start-of-document)
+  :constructor #'make-instance
+  :deinitializer #'reinitialize-object)
+
+(defclass end-of-document (chunk)
+  ())
+
+(defresource (end-of-document)
+  :constructor #'make-instance
+  :deinitializer #'reinitialize-object)
+
+
+;;;; DTD Entity Definer
+
+;; earlier entity definitions take precedence, ignore second definition for same entity
+
+(defvar *entity-table* (make-hash-table :test 'string=))
+
+(defmacro define-entity (name expansion)
+ `(eval-when (:compile-toplevel :load-toplevel :execute)
+    (setf (gethash ,name ,*entity-table*) ,expansion)
+    ',name))
+
+(defun entity-expansion (string)
+  (gethash string *entity-table* :no-such-entity))
+
+;;;; DTD Element Definer
+
+(defparameter *using-defaults* nil)
+
+(defvar *start-tag->end-tag-name-table* (make-hash-table :test 'eq))
+(defvar *end-tag->start-tag-name-table* (make-hash-table :test 'eq))
+(defvar *start-tag->empty-element-tag-name-table* (make-hash-table :test 'eq))
+
+(defun end-tag-name (start-tag-name)
+  (if (symbolp start-tag-name)
+      (let ((end-tag-name (gethash start-tag-name *start-tag->end-tag-name-table* :not-defined)))
+	(if (eq end-tag-name :not-defined)
+	    (intern (concatenate 'string "/" (symbol-name start-tag-name)) (symbol-package start-tag-name))
+	    end-tag-name))
+      (insert-character start-tag-name #\/)))
+
+(defun start-tag-name (end-tag-name)
+  (if (symbolp end-tag-name)
+      (let ((start-tag-name (gethash end-tag-name *end-tag->start-tag-name-table* :not-defined)))
+	(if (eq start-tag-name :not-defined)
+	    (intern (subseq (symbol-name end-tag-name) 1) (symbol-package end-tag-name))
+	    start-tag-name))
+      (left-shift end-tag-name :count 1)))
+
+(defun empty-element-tag-name (start-tag-name)
+  (if (symbolp start-tag-name)
+      (let ((end-tag-name (gethash start-tag-name *start-tag->empty-element-tag-name-table* :not-defined)))
+	(if (eq end-tag-name :not-defined)
+	    (intern (concatenate 'string (symbol-name start-tag-name) "/") (symbol-package start-tag-name))
+	    end-tag-name))
+      (progn (vector-push #\/ start-tag-name)
+	     start-tag-name)))
+
+(defun end-tag-name-p (end-tag-name)
+  (char= (char (symbol-name end-tag-name) 0) #\/))
+
+(defun start-tag-name-p (start-tag-name)
+  (not (char= (char (symbol-name start-tag-name) 0) #\/)))
+
+(defparameter *element-count* 0)
+(defparameter *end-tag-count* 0)
+(defparameter *empty-element-tag-count* 0)
+
+(defun print-dtd-summary ()
+  (format t "~&= Defined ~D elements, ~D end tags and ~D empty element tags." *element-count* *end-tag-count* *empty-element-tag-count*)
+  (setf *empty-element-tag-count* 0
+	*end-tag-count* 0
+	*element-count* 0)
+  nil)
+
+(defmethod chunk-slot ((chunk chunk) (slot-name symbol))
+  (if (typep chunk 'content)
+      (let ((val (slot-value chunk slot-name)))
+;	(etrace :baz1 (val slot-name))
+	val)
+;      (let* ((attr (find (symbol-name slot-name) (mapcar #'mop:slot-definition-name (mop:class-direct-slots (find-class (type-of chunk))))
+;			:key #'symbol-name
+;			:test #'string-equal))
+;	     (val (slot-value chunk (or attr slot-name))))
+;	(etrace :baz (val attr))
+;	val)
+      (let ((attr (find (symbol-name slot-name) (mapcar #'mop:slot-definition-name (mop:class-direct-slots (find-class (type-of chunk))))
+			:key #'symbol-name
+			:test #'string-equal)))
+	(if attr
+	    (slot-value chunk attr)
+	    (aif (find (symbol-name slot-name) (element-unknown-attributes chunk)
+		       :key #'(lambda (x)
+				(symbol-name (unknown-attribute-name x)))
+		       :test #'string-equal)
+		 (unknown-attribute-value it))))))
+
+(defmacro define-element (name (&rest superclasses) (&rest attributes))
+  (let* ((massaged-attributes (loop named massage
+				    with massaged = nil
+				    for attr in attributes
+				    do (destructuring-bind (name type default) attr
+					 (push `(,name 
+						 :type ,type 
+						 ,@(cl:if dtd-base::*using-defaults* '(:default) cl:nil)
+						 ,@(cl:if dtd-base::*using-defaults* `(,default) cl:nil)
+						 :accessor ,(cl:intern (format nil "ELEMENT-~A" name) 'dtd-base)
+						 :initarg ,(cl:intern name 'keyword))
+					       massaged))
+				    finally (return-from massage (nreverse massaged))))
+	 (metaclass (if *using-defaults*
+			'defaulting-slot-standard-class ; FIXME
+			'standard-class))
+	 (element-name (intern (format nil "~A+" name) *package*))
+	 (start-tag-name (intern (format nil "~A" name) *package*))
+	 (end-tag-name (intern (format nil "/~A" name) *package*))
+	 (empty-element-tag-name (intern (format nil "~A/" name) *package*))
+	 (element `(cl:defclass ,element-name ,superclasses
+				()
+				(:metaclass ,metaclass)))
+	 (element-counter `(cl:incf dtd-base::*element-count*))
+	 (start-tag `(cl:defclass ,start-tag-name (,element-name dtd-base::start-tag)
+				  ,massaged-attributes
+				  (:metaclass ,metaclass)))
+	 (start-tag-resource `(r:defresource (,start-tag-name)
+				:constructor #'make-instance
+				:reinitializer #'reinitialize-object
+				:deinitializer #'deinitialize-start-tag))
+	 (end-tag (if (find 'end-tag-forbidden-element superclasses :test #'eq)
+		      'cl:nil
+		      `(cl:defclass ,end-tag-name (,element-name dtd-base::end-tag) 
+				    ()
+				    (:metaclass ,metaclass))))
+	 (end-tag-resource (if (find 'end-tag-forbidden-element superclasses :test #'eq)
+			       'cl:nil
+			       `(r:defresource (,end-tag-name)
+				  :constructor #'make-instance
+				  :deinitializer #'reinitialize-object)))
+	 (end-tag-counter (if (find 'end-tag-forbidden-element superclasses :test #'eq)
+			      'cl:nil
+			      '(cl:incf dtd-base::*end-tag-count*)))
+	 (empty-element-tag (if (or (find 'end-tag-optional-element superclasses)
+				    (find 'end-tag-forbidden-element superclasses))
+				;; bad empty element tag definition.. keeps slots from being direct.  better definition below seems to work fine.
+;				`(cl:defclass ,empty-element-tag-name (,start-tag-name dtd-base::empty-element-tag)
+;						     ()
+;						     (:metaclass ,metaclass))
+				`(cl:defclass ,empty-element-tag-name (,element-name dtd-base::empty-element-tag)
+						     ,massaged-attributes
+						     (:metaclass ,metaclass))
+				'cl:nil))
+	 (empty-element-tag-resource (if (or (find 'end-tag-optional-element superclasses)
+					     (find 'end-tag-forbidden-element superclasses))
+					 `(r:defresource (,empty-element-tag-name)
+					    :constructor #'make-instance
+					    :reinitializer #'reinitialize-object
+					    :deinitializer #'deinitialize-start-tag
+;					    :deinitializer #'reinitialize-object
+					   )
+					 'cl:nil))
+	 (empty-element-tag-counter (if (or (find 'end-tag-optional-element superclasses)
+					    (find 'end-tag-forbidden-element superclasses))
+					'(cl:incf dtd-base::*empty-element-tag-count*)
+					'cl:nil))
+	 (tag-converters `(cl:eval-when (:compile-toplevel :load-toplevel :execute)
+			    (cl:setf (cl:gethash ',start-tag-name dtd-base::*start-tag->end-tag-name-table*) ',end-tag-name)
+			    (cl:setf (cl:gethash ',end-tag-name dtd-base::*end-tag->start-tag-name-table*) ',start-tag-name)
+			    (cl:setf (cl:gethash ',start-tag-name dtd-base::*start-tag->empty-element-tag-name-table*) ',empty-element-tag-name))))
+    `(cl:progn
+       ,element
+       ,element-counter
+       ,start-tag
+       ,start-tag-resource
+       ,end-tag
+       ,end-tag-resource
+       ,end-tag-counter
+       ,empty-element-tag
+       ,empty-element-tag-resource
+       ,empty-element-tag-counter
+       ,tag-converters
+       ',name)))
+
+(defun string-typecheck (x check)
+  (etypecase check
+    (string (or (null x)
+		(and (stringp x)
+		     (string-equal x check))))
+    (list (and (stringp x)
+	       (member x check :test #'string-equal)))))
+
+(defmacro define-value-type (name &rest values)
+  (let ((predicate (rutils:fintern "~A-P" name))
+	(x (gensym)))
+    `(cl:eval-when (:compile-toplevel :load-toplevel :execute)
+       (cl:defun ,predicate (,x)
+	 (dtd-base::string-typecheck ,x ,@values))
+       (cl:deftype ,name () '(cl:satisfies ,predicate)))))
+
+(defun dtd-element-names (package)
+  (let ((symbols ()))
+    (do-symbols (s (find-package package))
+      (when (and (ignore-errors (find-class s))
+		 (subtypep s 'element)
+		 (not (subtypep s 'start-tag))
+		 (not (subtypep s 'end-tag)))
+	(push s symbols)))
+    symbols))
+
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (export '(dtd resolve-name register-dtd find-dtd object-array
+	    chunk element deprecated-element end-tag-forbidden-element end-tag-optional-element start-and-end-tag-optional-element
+	    unknown-element unknown-attribute element-unknown-attributes start-tag make-start-tag end-tag make-end-tag unknown-start-tag
+	    unknown-end-tag start-of-document end-of-document
+	    markup-declaration markup-comment markup-declaration-comments markup-declaration-data 
+	    processing-instruction processing-instruction-data
+	    content text mode extra-data
+	    entity-expansion define-element define-value-type include-character-entity-set dtd-character-entity-table
+	    content-text unknown-attribute-value unknown-attribute-name map-element-known-attributes map-element-unknown-attributes
+	    end-tag-name start-tag-name end-tag-name-p start-tag-name-p
+	    print-dtd-summary empty-element-tag chunk-slot)))
+;; added chunk to exports.. hope that doesnt break anything

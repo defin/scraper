@@ -1,0 +1,86 @@
+(in-package html-tokenizer)
+
+;; squaretag-test
+;(eval-when (:compile-toplevel :load-toplevel :execute)
+;  (pull:squaretag-install)
+;  (print [fnord]))
+
+;;; Test
+
+(defparameter *last-test-tokens* nil)
+
+(defun toke-test (&key (report t))
+  (run-tests (#P"C:/code/tools/page-scanner/tests/tokenizer/" 
+		"content"
+		"cdata"
+		"values"
+		"script"
+		"bad-tag"
+		"comment"
+		"character-reference"
+		"whitespace"
+		"null-content"
+		"seller profile - mfkhandy.htm"
+	       )
+    (let ((tokenizer (tokenizer-open (make-instance 'html-tokenizer) (test-input-stream))))
+      (include-character-entity-set (tokenizer-character-entity-table tokenizer)
+				    (dtd-base:dtd-character-entity-table (dtd-base:find-dtd :html-transitional-401)))
+      (setf *last-test-tokens* nil)
+      (loop for toke = (next-token tokenizer)
+	    as i from 0
+	    do (when report
+		 (test-report "~&~A" toke))
+	       (when (typep toke 'non-html-syntax-token)
+		 (release-token-buffer (token-data toke) nil))
+	    until (eq toke end-of-document)))))
+
+(defun time-test (pathname)
+  (with-open-file (file pathname :direction :input)
+    (let ((tokenizer (tokenizer-open (make-instance 'html-tokenizer) file))
+	  (token-count 0))
+      (include-character-entity-set (tokenizer-character-entity-table tokenizer)
+				    (dtd-base:dtd-character-entity-table (dtd-base:find-dtd :html-transitional-401)))
+      (time (loop for toke = (next-token tokenizer)
+		  until (eq toke end-of-document)
+		  do (incf token-count)
+ 		     (when (typep toke 'non-html-syntax-token)
+		       (release-token-buffer (token-data toke) nil))))
+      (format t "~%- ~D tokens" token-count))))
+
+(in-package cl-user::html-pull-parser)
+
+(defun parser-test (&key (report t) (count nil))
+  (run-tests (#P"C:/code/tools/page-scanner/tests/parser/" 
+;		"comments.html"
+;		"tags.html"
+;		"seller profile - mfkhandy.htm"
+		"universitycafe.org"
+	       )
+    (let ((parser (make-html-pull-parser 'html-pull-parser (test-input-stream) :report-p report)))
+      (loop for chunk = (next-chunk parser)
+	    for i from 0
+	    do (release-chunk chunk)
+	    until (and count (= i count))
+	    until (typep chunk 'end-of-document)))))
+
+(defvar *test-parser* nil)
+
+(defun parser-time (pathname)
+  (with-open-file (file pathname :direction :input)
+    (let ((parser (make-html-pull-parser 'html-pull-parser file :report-p nil)))
+      (setq *test-parser* parser)
+      (time (handler-case (loop for chunk = (next-chunk parser)
+				do (release-chunk chunk)
+				until (typep chunk 'end-of-document))
+			  (pull::end-of-document-reached ()
+							 nil)))
+      (report-totals parser *standard-output*))))
+
+;(time-test "C:/code/tools/page-scanner/tests/tokenizer/time-1000-tokens.html")
+;(time-test "C:/code/tools/page-scanner/tests/tokenizer/seller profile - mfkhandy.htm")
+;(time-test"c:/code/bookmanager/example pages/half book page - fahrenheit 451.htm")
+;(toke-test)
+;(trace (next-token-internal) (claim-token-buffer) (release-token-buffer) (share-token-buffer))
+;(untrace)
+;(trace (process-html-character-reference))
+;(parser-time "C:/code/tools/page-scanner/tests/parser/seller profile - mfkhandy.htm")

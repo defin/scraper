@@ -1,0 +1,35 @@
+
+; should provide a special variable LOOP-VALUE that you can push things on during execution of the loop, and its value is automatically the value of the loop.
+; should also support a special loop variable called LOOP-ITERATION that you can look at and see what iteration of the loop you are on.
+
+; what about comments?  is it legal to do [!-- foo bar baz --] ?  it needs to be.. also allowing regular expressions..
+
+; need to support resetting versus non-resetting iteration variables.. like the difference between using FOR and WITH in a LOOP macro..
+
+; need to support NEXT-SIBLING which searches forward until it gets to the next element which is a sibling of the current element (has the same parent, at the same level)
+
+; look st XPath for other ideas for things to support.
+
+; should be able to support a '<>' modifier on variables as well as '.' .. the '<>' modifier could be used like the smarty '|' modifier, run it through a modification function.. but with a nicer syntax: sequences of function calls space seperated from their arguments, and comma seperated from eachother.. the (multiple) return values of each function going to the next as its first N arguments:
+;  ?foo.text<parse-currency usd, to-string format=float>
+; would bind foo.text to the value of the text slot of the current chunk, then call parse currentcy with the text as the first argument and :usd (signifying US Dollars) as the second argument.  This will return a currency object of of class USD and the correct value (stored as two strings, one for dollars one for cents).  Then we use that as the first argument to TO-STRING and also the keyword argument FORMAT set to FLOAT
+
+; should implement a way to include more things in the environment and a way to access them.. like the url of the current page..
+; should be possible to do (NTH 3 (ONEOF "foo" [b]))
+
+; need to support LANDMARK and DATA constructs, that work just like AND but give you some more information about
+; what is being searched for at the moment.  LANDMARK means you are searching for a landmark. .a reference point in the document
+; DATA means you are searching for data that you actually care about
+
+
+; also need CHUNK-COUNT
+
+; does EMPTY-ELEMENT-TAG really work?
+
+
+;; need a MATCHING-END-TAG or somesuch that will look at the current tag and search until it finds the properly balanced matching end tag.
+
+;; wrong! :
+;AUTOTRADER-USED-CAR-MAIN> [foo /]
+; #<FOO [unknown start tag]>
+

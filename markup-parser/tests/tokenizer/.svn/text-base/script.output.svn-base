@@ -1,0 +1,19 @@
+#<START-OF-DOCUMENT>
+#<STANDARD-TAG-OPEN>
+#<TAG-NAME with data "SCRIPT">
+#<ATTRIBUTE-NAME with data "LANGUAGE">
+#<ATTRIBUTE-EQUALS>
+#<ATTRIBUTE-VALUE with data "javascript">
+#<ATTRIBUTE-NAME with data "SRC">
+#<ATTRIBUTE-EQUALS>
+#<ATTRIBUTE-VALUE with data "/foo/bar">
+#<TAG-CLOSE>
+#<CONTENT with data "
+blahblah<foobar></buzz
+">
+#<END-TAG-OPEN>
+#<TAG-NAME with data "SCRIPT">
+#<TAG-CLOSE>
+#<CONTENT with data "
+">
+#<END-OF-DOCUMENT>

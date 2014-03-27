@@ -1,0 +1,168 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+
+<head>
+<meta http-equiv="content-type" content="text/html;charset=ISO-8859-1">
+<title>University Caf&eacute;  |  Graduate Student Lounge</title>
+<style type="text/css" media="screen"><!--
+.threesidesline   { padding-top: 5px; padding-left: 8px; border-top: none; border-right: 1px solid olive; border-bottom: 1px solid olive; border-left: 1px solid olive }
+.sidebottom { padding-top: 5px; padding-left: 8px; border-bottom: 1px solid olive; border-left: 1px solid olive }
+.links { color: white; text-decoration: underline }
+.blk lies dotted right { border-right: 1px dotted black }
+.class1 { border-right: 2px dotted black }
+.chocolate border underside { border-bottom: 1px solid olive }
+--></style>
+<script type="text/javascript" src="GeneratedItems/CSScriptLib.js"></script>
+<script type="text/javascript"><!--
+var preloadFlag = false;
+function preloadImages() {
+if (document.images) {
+over_contact_button__ = newImage(/*URL*/'topbar_images/contact-button-!.gif');
+over_CAFELOUNGE = newImage(/*URL*/'topbar_images/CAFELOUNGE-over.jpg');
+over_CABARET = newImage(/*URL*/'topbar_images/CABARET-over.jpg');
+over_GALLERY = newImage(/*URL*/'topbar_images/GALLERY-over.jpg');
+over_SPECIAL_EVENTS = newImage(/*URL*/'topbar_images/SPECIAL-EVENTS-over.jpg');
+over_MUSICSCHEDULE = newImage(/*URL*/'topbar_images/MUSICSCHEDULE-over.gif');
+over_MERCHANDISE = newImage(/*URL*/'topbar_images/MERCHANDISE-over.gif');
+preloadFlag = true;
+}
+}
+CSAct[/*CMP*/ 'BBAE702B21'] = new Array(CSOpenPositionWindow,/*URL*/ 'http://fullandby.net','',600,500,true,true,true,true,true,true,true,200,200);
+CSAct[/*CMP*/ 'BBAE834B29'] = new Array(CSNSFix);
+CSAction(new Array(/*CMP*/ 'BBAE834B29'));
+CSAct[/*CMP*/ 'BBC016EF1'] = new Array(CSOpenWindow,/*URL*/ 'http://limc.org','',700,550,true,true,true,true,true,true,true);
+CSAct[/*CMP*/ 'BBC023AF2'] = new Array(CSOpenWindow,/*URL*/ 'http://www.ic.sunysb.edu/Clubs/cabaret/','',800,650,true,true,true,true,true,true,true);
+CSAct[/*CMP*/ 'BBD5BC9C1'] = new Array(CSOpenWindow,/*URL*/ 'http://limc.org','',700,550,true,true,true,true,true,true,true);
+
+// --></script>
+
+<meta name="keywords" content="stony brook university, entertainment, long island, godfrey, palaia, LIMC, Faculty Student, local bands, live music, imported beers, lounge, cabaret, suffolk">
+
+</head>
+
+<body onload="preloadImages();" bgcolor="#640000" leftmargin="0" marginheight="0" marginwidth="0" topmargin="0">
+<div align="center">
+<table width="805" border="0" cellspacing="0" cellpadding="0" align="center" bgcolor="#8b0000" height="915">
+<tr height="156">
+<td rowspan="2" align="left" valign="top" bgcolor="black" width="1" height="789"><img src="images/1x1_transparent.gif" alt="" height="1" width="1" border="0"></td>
+<td colspan="3" align="left" valign="top" width="851" height="156">
+<div align="left">
+<TABLE WIDTH=850 BORDER=0 CELLPADDING=0 CELLSPACING=0>
+<TR>
+<TD WIDTH=633 HEIGHT=18 COLSPAN=9><IMG SRC="topbar_images/top-left.jpg" WIDTH=633 HEIGHT=18 ALT="Lights"></TD>
+<TD WIDTH=217 HEIGHT=18 COLSPAN=3><a onmouseover="changeImages( /*CMP*/'contact_button__',/*URL*/'topbar_images/contact-button-!.gif');return true" onmouseout="changeImages( /*CMP*/'contact_button__',/*URL*/'topbar_images/contact-button-!.gif');return true" href="mailto:gpalaia@universitycafe.org"><IMG SRC="topbar_images/contact-button-!.gif" name="contact_button__" WIDTH=217 HEIGHT=18 ALT="Email Contact" border="0"></a></TD>
+<TD WIDTH=1 HEIGHT=18><IMG SRC="topbar_images/spacer.gif"></TD>
+</TR>
+
+<TR>
+<TD WIDTH=435 HEIGHT=53 COLSPAN=4><IMG SRC="topbar_images/mid-left.jpg" WIDTH=435 HEIGHT=53 ALT="U Cafe Logo"></TD>
+<TD WIDTH=415 HEIGHT=53 COLSPAN=8><IMG SRC="topbar_images/mid-right.jpg" WIDTH=415 HEIGHT=53 ALT="Art"></TD>
+<TD WIDTH=1 HEIGHT=53><IMG SRC="topbar_images/spacer.gif"></TD>
+</TR>
+<TR>
+<TD WIDTH=294 HEIGHT=23><IMG SRC="topbar_images/cafe.jpg" WIDTH=294 HEIGHT=23></TD>
+<TD WIDTH=88 HEIGHT=23 COLSPAN=2><A HREF="theUC.html"
+ONMOUSEOVER="changeImages('UC', 'topbar_images/UC-over.jpg'); return true;"
+ONMOUSEOUT="changeImages('UC', 'topbar_images/UC.jpg'); return true;"><IMG NAME="UC" SRC="topbar_images/UC.jpg" WIDTH=88 HEIGHT=23 BORDER=0 ALT="The UC"></A></TD>
+<TD WIDTH=140 HEIGHT=23 COLSPAN=3><A onmouseover="changeImages( /*CMP*/'CAFELOUNGE',/*URL*/'topbar_images/CAFELOUNGE-over.jpg');return true" onmouseout="changeImages( /*CMP*/'CAFELOUNGE',/*URL*/'topbar_images/CAFELOUNGE.jpg');return true" HREF="cafe_lounge.html"
+
+><IMG NAME="CAFELOUNGE" SRC="topbar_images/CAFELOUNGE.jpg" WIDTH=140 HEIGHT=23 BORDER=0 ALT="Cafe &#38; Lounge"></A></TD>
+<TD WIDTH=98 HEIGHT=23 COLSPAN=2><A onclick="CSAction(new Array(/*CMP*/'BBC023AF2'));return false" onmouseover="changeImages( /*CMP*/'CABARET',/*URL*/'topbar_images/CABARET-over.jpg');return true" onmouseout="changeImages( /*CMP*/'CABARET',/*URL*/'topbar_images/CABARET.jpg');return true" HREF="http://www.ic.sunysb.edu/Clubs/cabaret/"
+
+><IMG NAME="CABARET" SRC="topbar_images/CABARET.jpg" WIDTH=98 HEIGHT=23 BORDER=0 ALT="cabaret"></A></TD>
+<TD WIDTH=92 HEIGHT=23 COLSPAN=2><A onmouseover="changeImages( /*CMP*/'GALLERY',/*URL*/'topbar_images/GALLERY-over.jpg');return true" onmouseout="changeImages( /*CMP*/'GALLERY',/*URL*/'topbar_images/GALLERY.jpg');return true" HREF="gallery.html"
+
+><IMG NAME="GALLERY" SRC="topbar_images/GALLERY.jpg" WIDTH=92 HEIGHT=23 BORDER=0 ALT="Gallery"></A></TD>
+<TD WIDTH=138 HEIGHT=23 COLSPAN=2><A onmouseover="changeImages( /*CMP*/'SPECIAL_EVENTS',/*URL*/'topbar_images/SPECIAL-EVENTS-over.jpg');return true" onmouseout="changeImages( /*CMP*/'SPECIAL_EVENTS',/*URL*/'topbar_images/SPECIAL-EVENTS.jpg');return true" HREF="specialevents.html"
+
+><IMG NAME="SPECIAL_EVENTS" SRC="topbar_images/SPECIAL-EVENTS.jpg" WIDTH=138 HEIGHT=23 BORDER=0 ALT="Special Events"></A></TD>
+<TD WIDTH=1 HEIGHT=23><IMG SRC="topbar_images/spacer.gif"></TD>
+</TR>
+<TR>
+<TD WIDTH=365 HEIGHT=22 COLSPAN=2><IMG SRC="topbar_images/graduatestudentlounge.gif" WIDTH=365 HEIGHT=22 ALT="Graduate Student Lounge"></TD>
+<TD WIDTH=137 HEIGHT=22 COLSPAN=3><A HREF="musicschedule.html"
+ONMOUSEOVER="changeImages('MUSICSCHEDULE', 'topbar_images/MUSICSCHEDULE-over.gif'); return true;"
+ONMOUSEOUT="changeImages('MUSICSCHEDULE', 'topbar_images/MUSICSCHEDULE.gif'); return true;"><IMG NAME="MUSICSCHEDULE" SRC="topbar_images/MUSICSCHEDULE.gif" WIDTH=137 HEIGHT=22 BORDER=0></A></TD>
+
+<TD WIDTH=113 HEIGHT=22 COLSPAN=2><A onmouseover="changeImages( /*CMP*/'MERCHANDISE',/*URL*/'topbar_images/MERCHANDISE-over.gif');return true" onmouseout="changeImages( /*CMP*/'MERCHANDISE',/*URL*/'topbar_images/MERCHANDISE.gif');return true" HREF="merchandise.html"
+
+><IMG NAME="MERCHANDISE" SRC="topbar_images/MERCHANDISE.gif" WIDTH=113 HEIGHT=22 BORDER=0 ALT="Merchandise"></A></TD>
+<TD WIDTH=116 HEIGHT=22 COLSPAN=4><A HREF="bookinginfo.html"
+ONMOUSEOVER="changeImages('BOOKINGINFO', 'topbar_images/BOOKINGINFO-over.gif'); return true;"
+ONMOUSEOUT="changeImages('BOOKINGINFO', 'topbar_images/BOOKINGINFO.gif'); return true;"><IMG NAME="BOOKINGINFO" SRC="topbar_images/BOOKINGINFO.gif" WIDTH=116 HEIGHT=22 BORDER=0 ALT="Booking Info"></A></TD>
+<TD WIDTH=119 HEIGHT=22><A HREF="technicalinfo.html"
+ONMOUSEOVER="changeImages('TECHINFO', 'topbar_images/TECHINFO-over.gif'); return true;"
+ONMOUSEOUT="changeImages('TECHINFO', 'topbar_images/TECHINFO.gif'); return true;"><IMG NAME="TECHINFO" SRC="topbar_images/TECHINFO.gif" WIDTH=119 HEIGHT=22 BORDER=0 ALT="Technical Info"></A></TD>
+<TD WIDTH=1 HEIGHT=22><IMG SRC="topbar_images/spacer.gif"></TD>
+</TR>
+<TR>
+<TD WIDTH=850 HEIGHT=39 COLSPAN=12><IMG SRC="topbar_images/ucafe_site_Header_CNTR_alig.gif" WIDTH=850 HEIGHT=39 ALT="Patterns"></TD>
+<TD WIDTH=1 HEIGHT=39><IMG SRC="topbar_images/spacer.gif"></TD>
+</TR>
+<TR>
+<TD WIDTH=294 HEIGHT=1><IMG SRC="topbar_images/spacer.gif"></TD>
+<TD WIDTH=71 HEIGHT=1><IMG SRC="topbar_images/spacer.gif"></TD>
+<TD WIDTH=17 HEIGHT=1><IMG SRC="topbar_images/spacer.gif"></TD>
+<TD WIDTH=53 HEIGHT=1><IMG SRC="topbar_images/spacer.gif"></TD>
+<TD WIDTH=67 HEIGHT=1><IMG SRC="topbar_images/spacer.gif"></TD>
+<TD WIDTH=20 HEIGHT=1><IMG SRC="topbar_images/spacer.gif"></TD>
+<TD WIDTH=93 HEIGHT=1><IMG SRC="topbar_images/spacer.gif"></TD>
+
+<TD WIDTH=5 HEIGHT=1><IMG SRC="topbar_images/spacer.gif"></TD>
+<TD WIDTH=13 HEIGHT=1><IMG SRC="topbar_images/spacer.gif"></TD>
+<TD WIDTH=79 HEIGHT=1><IMG SRC="topbar_images/spacer.gif"></TD>
+<TD WIDTH=19 HEIGHT=1><IMG SRC="topbar_images/spacer.gif"></TD>
+<TD WIDTH=119 HEIGHT=1><IMG SRC="topbar_images/spacer.gif"></TD>
+<TD WIDTH=1 HEIGHT=1></TD>
+</TR>
+</TABLE>
+</div>
+</td>
+<td rowspan="2" align="left" valign="top" bgcolor="black" width="1" height="789"><img src="images/1x1_transparent.gif" alt="" width="1" height="1" border="0"><img src="images/1x1_transparent.gif" alt="" width="1" height="1" border="0"></td>
+</tr>
+<tr height="633">
+<td align="left" valign="top" width="110" height="633">
+<div align="left">
+<img src="images/sidebar/britelight_LB.jpg" alt="" width="105" height="122" border="0"><img src="images/sidebar/f.jpg" alt="" width="105" height="122" border="0"><img src="images/sidebar/d.jpg" alt="" width="105" height="122" border="0"><img src="images/sidebar/willjams_LB.jpg" alt="" width="105" height="122" border="0"><img src="images/sidebar/g.jpg" alt="" width="105" height="122" border="0"></div>
+</td>
+
+<td align="right" valign="top" width="619" height="633">
+<!-- begin special event -->
+<!-- end special event -->
+<div align="center">
+<table width="581" border="0" cellspacing="1" cellpadding="2" align="center" height="633"><tr height="64"><td class="sidebottom" colspan="2" align="left" valign="bottom" bgcolor="#8b0000" width="575" height="64"><img class="8padL/4bord" src="/images/twoweekpreview.gif" alt="Two Week Program Preview" width="450" height="45" border="0"></td></tr><tr height="558"><td class="sidebottom" align="left" valign="top" bgcolor="#8b0000" width="285" height="558"><p><font size="1" color="white" face="Arial,Helvetica,Geneva,Swiss,SunSans-Regular">Week of</font><br><font size="3" color="white" face="Arial,Helvetica,Geneva,Swiss,SunSans-Regular"><b>December 6 &#150; December 12</b></font></p><p><img src="/images/daysofweek/mon.gif" alt="Monday" height="30" width="109" border="0"><font size="1" color="black" face="Arial,Helvetica,Geneva,Swiss,SunSans-Regular"><b>12. 06. 04<br></b></font></p><p><img src="/images/daysofweek/tues.gif" alt="Tuesday" height="30" width="109" border="0"><font size="1" color="black" face="Arial,Helvetica,Geneva,Swiss,SunSans-Regular"><b>12. 07. 04<br></b></font></p><p><img src="/images/daysofweek/wed.gif" alt="Wednesday" height="30" width="109" border="0"><font size="1" color="black" face="Arial,Helvetica,Geneva,Swiss,SunSans-Regular"><b>12. 08. 04<br></b></font><font size="2" color="black" face="Arial,Helvetica,Geneva,Swiss,SunSans-Regular"><b>"These Things Happen" :: 7-8:30pm</b></font><br><font size="2" color="#D2691E" face="Arial,Helvetica,Geneva,Swiss,SunSans-Regular">A Stage Reading of a play by Natalie Bates </font><font size="2" color="#D2691E" face="Arial,Helvetica,Geneva,Swiss,SunSans-Regular"><a onclick="CSAction(new Array(/*CMP*/'BBD5BC9C1'));return CSClickReturn();" href="http://Co-Produced by the Wo/Men's Center &amp; the University Cafe"><span class="links">Co-Produced by the Wo/Men's Center & the University Cafe</span></a></font><br><font size="2" color="black" face="Arial,Helvetica,Geneva,Swiss,SunSans-Regular"><b>Bakithi Kumalo & Friends  :: 9:00pm</b></font><br><font size="2" color="#D2691E" face="Arial,Helvetica,Geneva,Swiss,SunSans-Regular">Live Jazz Jam Session </font><br></p><p><img src="/images/daysofweek/thurs.gif" alt="Thursday" height="30" width="109" border="0"><font size="1" color="black" face="Arial,Helvetica,Geneva,Swiss,SunSans-Regular"><b>12. 09. 04<br></b></font><font size="2" color="black" face="Arial,Helvetica,Geneva,Swiss,SunSans-Regular"><b>Flights of Fancy :: 5-8pm</b></font><br><font size="2" color="#D2691E" face="Arial,Helvetica,Geneva,Swiss,SunSans-Regular">UCafe's Beer Tasting with Food </font><font size="2" color="#D2691E" face="Arial,Helvetica,Geneva,Swiss,SunSans-Regular"><a onclick="CSAction(new Array(/*CMP*/'BBD5BC9C1'));return CSClickReturn();" href="http://Mix  Mingle  Munch"><span class="links">Mix  Mingle  Munch</span></a></font><br><font size="2" color="black" face="Arial,Helvetica,Geneva,Swiss,SunSans-Regular"><b>Acoustic Performances :: 8:30pm</b></font><br><font size="2" color="#D2691E" face="Arial,Helvetica,Geneva,Swiss,SunSans-Regular">LIMC Acoustic Showcase </font><br></p><p><img src="/images/daysofweek/fri.gif" alt="Friday" height="30" width="109" border="0"><font size="1" color="black" face="Arial,Helvetica,Geneva,Swiss,SunSans-Regular"><b>12. 10. 04<br></b></font><font size="2" color="black" face="Arial,Helvetica,Geneva,Swiss,SunSans-Regular"><b>Element :: 9:30pm</b></font><br><font size="2" color="#D2691E" face="Arial,Helvetica,Geneva,Swiss,SunSans-Regular">Live Rock Band </font><br><font size="2" color="black" face="Arial,Helvetica,Geneva,Swiss,SunSans-Regular"><b>Bleeding Egos :: 10:30pm</b></font><br><font size="2" color="#D2691E" face="Arial,Helvetica,Geneva,Swiss,SunSans-Regular">Live Original Rock Music </font><br></p><p><img src="/images/daysofweek/sat.gif" alt="Saturday" height="30" width="109" border="0"><font size="1" color="black" face="Arial,Helvetica,Geneva,Swiss,SunSans-Regular"><b>12. 11. 04<br></b></font><font size="2" color="black" face="Arial,Helvetica,Geneva,Swiss,SunSans-Regular"><b>To Fill The Void :: 9:30pm</b></font><br><font size="2" color="#D2691E" face="Arial,Helvetica,Geneva,Swiss,SunSans-Regular">Live Rock Music </font><br><font size="2" color="black" face="Arial,Helvetica,Geneva,Swiss,SunSans-Regular"><b>Tender rocket :: 10:30pm</b></font><br><font size="2" color="#D2691E" face="Arial,Helvetica,Geneva,Swiss,SunSans-Regular">Live Acoustic Blues/Folk Rock </font><br></p><p><img src="/images/daysofweek/sun.gif" alt="Sunday" height="30" width="109" border="0"><font size="1" color="black" face="Arial,Helvetica,Geneva,Swiss,SunSans-Regular"><b>12. 12. 04<br></b></font></p></td><td class="threesidesline" align="left" valign="top" bgcolor="#8b0000" width="285" height="558"><p><font size="1" color="white" face="Arial,Helvetica,Geneva,Swiss,SunSans-Regular">Week of</font><br><font size="3" color="white" face="Arial,Helvetica,Geneva,Swiss,SunSans-Regular"><b>December 13 &#150; December 19</b></font></p><p><img src="/images/daysofweek/mon.gif" alt="Monday" height="30" width="109" border="0"><font size="1" color="black" face="Arial,Helvetica,Geneva,Swiss,SunSans-Regular"><b>12. 13. 04<br></b></font></p><p><img src="/images/daysofweek/tues.gif" alt="Tuesday" height="30" width="109" border="0"><font size="1" color="black" face="Arial,Helvetica,Geneva,Swiss,SunSans-Regular"><b>12. 14. 04<br></b></font></p><p><img src="/images/daysofweek/wed.gif" alt="Wednesday" height="30" width="109" border="0"><font size="1" color="black" face="Arial,Helvetica,Geneva,Swiss,SunSans-Regular"><b>12. 15. 04<br></b></font></p><p><img src="/images/daysofweek/thurs.gif" alt="Thursday" height="30" width="109" border="0"><font size="1" color="black" face="Arial,Helvetica,Geneva,Swiss,SunSans-Regular"><b>12. 16. 04<br></b></font></p><p><img src="/images/daysofweek/fri.gif" alt="Friday" height="30" width="109" border="0"><font size="1" color="black" face="Arial,Helvetica,Geneva,Swiss,SunSans-Regular"><b>12. 17. 04<br></b></font></p><p><img src="/images/daysofweek/sat.gif" alt="Saturday" height="30" width="109" border="0"><font size="1" color="black" face="Arial,Helvetica,Geneva,Swiss,SunSans-Regular"><b>12. 18. 04<br></b></font></p><p><img src="/images/daysofweek/sun.gif" alt="Sunday" height="30" width="109" border="0"><font size="1" color="black" face="Arial,Helvetica,Geneva,Swiss,SunSans-Regular"><b>12. 19. 04<br></b></font></p></td></tr></table>
+
+</div>
+</td>
+<td align="right" valign="top" width="122" height="633"><img src="images/sidebar/a.jpg" alt="" width="105" height="122" border="0"><img src="images/sidebar/b.jpg" alt="" width="105" height="122" border="0"><img src="images/sidebar/jimlookleft_RB.jpg" alt="" width="105" height="122" border="0"><img src="images/sidebar/e.jpg" alt="" width="105" height="122" border="0"><img src="images/sidebar/c.jpg" alt="" width="105" height="122" border="0"></td>
+</tr>
+<tr height="50">
+<td align="left" valign="top" bgcolor="black" width="1" height="50"></td>
+<td colspan="3" align="left" valign="top" width="851" height="86">
+<div align="center">
+<table width="809" border="0" cellspacing="0" cellpadding="0" height="126">
+<tr height="126">
+<td align="center" valign="middle" width="809" height="126">
+<font size="2" face="Arial,Helvetica,Geneva,Swiss,SunSans-Regular"><b>Hours of Operation</b><br> Caf&eacute <font size="1" face="Arial,Helvetica,Geneva,Swiss,SunSans-Regular">Mon-Fri 12:00 to 5:00PM</font> Lounge <font size="1" face="Arial,Helvetica,Geneva,Swiss,SunSans-Regular">Wed-Sat 5:00 to 2:00AM</font></font><br>
+
+<font size="1" face="Arial,Helvetica,Geneva,Swiss,SunSans-Regular">During lounge hours, 21 and older with proper identification <u>only</u></font>.
+</td>
+</tr>
+<tr height="126">
+<td align="center" valign="middle" width="809" height="126">
+<div align="center">
+<font size="1" face="Arial,Helvetica,Geneva,Swiss,SunSans-Regular">All content &copy; 2004 University Caf&eacute; &#149; All Rights Reserved &#149; </font><font size="1" color="gray" face="Arial,Helvetica,Geneva,Swiss,SunSans-Regular"><a onclick="CSAction(new Array(/*CMP*/'BBAE702B21'));return CSClickReturn();" href="http://fullandby.net"><span class="links">Site design by beneriksen.com</span></a></font></div>
+
+</td>
+</tr>
+</table>
+</div>
+</td>
+<td align="left" valign="top" bgcolor="black" width="1" height="50"></td>
+</tr>
+</table>
+</div>
+</body>
+
+</html>

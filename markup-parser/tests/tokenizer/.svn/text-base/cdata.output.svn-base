@@ -1,0 +1,11 @@
+#<START-OF-DOCUMENT>
+#<STANDARD-TAG-OPEN>
+#<TAG-NAME with data "FOO">
+#<ATTRIBUTE-NAME with data "BAR">
+#<ATTRIBUTE-EQUALS>
+#<ATTRIBUTE-VALUE with data "baz">
+#<ATTRIBUTE-NAME with data "UGH">
+#<ATTRIBUTE-EQUALS>
+#<ATTRIBUTE-VALUE with data "  plugh      ">
+#<ATTRIBUTE-NAME with data "">
+#<END-OF-DOCUMENT>

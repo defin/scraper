@@ -1,0 +1,32 @@
+#<START-OF-DOCUMENT>
+#<STANDARD-TAG-OPEN>
+#<TAG-NAME with data "HTML">
+#<TAG-CLOSE>
+#<CONTENT with data "
+ ">
+#<STANDARD-TAG-OPEN>
+#<TAG-NAME with data "BODY">
+#<TAG-CLOSE>
+#<CONTENT with data "
+  this is some content
+  ">
+#<STANDARD-TAG-OPEN>
+#<TAG-NAME with data "BOLD">
+#<TAG-CLOSE>
+#<CONTENT with data "this is some bold content">
+#<END-TAG-OPEN>
+#<TAG-NAME with data "BOLD">
+#<TAG-CLOSE>
+#<CONTENT with data "
+ ">
+#<END-TAG-OPEN>
+#<TAG-NAME with data "BODY">
+#<TAG-CLOSE>
+#<CONTENT with data "
+">
+#<END-TAG-OPEN>
+#<TAG-NAME with data "HTML">
+#<TAG-CLOSE>
+#<CONTENT with data "
+">
+#<END-OF-DOCUMENT>

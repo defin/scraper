@@ -1,0 +1,17 @@
+TOKE> (time-test "C:/code/tools/html-parser/tests/tokenizer/seller profile - mfkhandy.htm")
+; cpu time (non-gc) 691 msec user, 10 msec system
+; cpu time (gc)     170 msec user, 0 msec system
+; cpu time (total)  861 msec user, 10 msec system
+; real time  1,021 msec
+; space allocation:
+;  38,632 cons cells, 530,480 other bytes, 0 static bytes
+- 12871 tokens
+
+PULL> (parser-time "C:/code/tools/page-scanner/tests/parser/seller profile - mfkhandy.htm")
+; cpu time (non-gc) 2,363 msec user, 10 msec system
+; cpu time (gc)     101 msec user, 0 msec system
+; cpu time (total)  2,464 msec user, 10 msec system
+; real time  2,874 msec
+; space allocation:
+;  41,175 cons cells, 744,664 other bytes, 0 static bytes
+1295 lines containing 2630 chunks made from 12871 tokens totalling 73190 characters

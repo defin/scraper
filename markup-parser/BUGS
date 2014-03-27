@@ -1,0 +1,2 @@
+MATCH-AS-CHUNK (raw mode in tokenizer) doesn't ensure that the line number gets updated for internal newlines.
+

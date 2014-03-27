@@ -1,0 +1,21 @@
+<B>
+<B >
+
+<B FOO=ha>
+<B  FOO=ha>
+<B   FOO=ha>
+<B FOO=ha >
+
+<B FOO="ha!" >
+<B FOO="ha!">
+
+<B FOO>
+<B FOO >
+<B  FOO >
+<B FOO BAR>
+
+<B FOO=o>
+<B FOO=o >
+
+<B BORDER=0>
+<B BORDER=0 >
